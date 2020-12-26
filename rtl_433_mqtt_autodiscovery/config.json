@@ -1,0 +1,28 @@
+{
+  "name": "rtl_433 MQTT Autodiscovery",
+  "version": "0.1.0",
+  "slug": "rtl433mqttautodiscovery",
+  "description": "Auto-discover device information posted to MQTT by rtl_433",
+  "url": "https://github.com/pbkhrv/hassio-addons/tree/master/rtl_433_mqtt_autodiscovery",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "startup": "application",
+  "boot": "auto",
+  "options": {
+    "mqtt_host": "hassio",
+    "mqtt_port": 1883,
+    "mqtt_user": "",
+    "mqtt_password": "",
+    "rtl_topic": "rtl_433/+/events",
+    "discovery_topic_prefix": "homeassistant",
+    "discovery_interval": 600
+  },
+  "schema": {
+    "mqtt_host": "str",
+    "mqtt_port": "int",
+    "mqtt_user": "str",
+    "mqtt_password": "str",
+    "rtl_topic": "str",
+    "discovery_topic_prefix": "str",
+    "discovery_interval": "int"
+  }
+}
