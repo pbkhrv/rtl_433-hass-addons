@@ -16,14 +16,16 @@ For more details, see [the original script](https://github.com/merbanan/rtl_433/
 
  1. Setup rtl_433 to publish device information to MQTT.
 
- 2. Install this addon.
+ 2. Install this add-on.
 
- 3. Configure this addon:
+ 3. Configure this add-on:
 
-  * * `mqtt_host`
-  * * `mqtt_port`
-  * * `mqtt_user`
-  * * `mqtt_password`
-  * * `rtl_topic`: MQTT topic where rtl_433 is publishing its output. Default is "rtl_433".
-  * * `discovery_topic_prefix`: MQTT topic prefix where Home Assistant is looking for autodiscovery information. Default is "homeassistant".
-  * * `discovery_interval`: how often to publish autodiscovery information, in seconds. Default is 600.
+  * `mqtt_host`
+  * `mqtt_port`
+  * `mqtt_user`
+  * `mqtt_password`
+  * `rtl_topic`: MQTT topic where rtl_433 is publishing its output. Default is "rtl_433".
+  * `discovery_topic_prefix`: MQTT topic prefix where Home Assistant is looking for autodiscovery information. Default is "homeassistant".
+  * `discovery_interval`: how often to publish autodiscovery information, in seconds. Default is 600.
+
+  4. Start the add-on.

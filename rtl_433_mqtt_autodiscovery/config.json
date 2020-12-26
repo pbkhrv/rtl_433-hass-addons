@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "slug": "rtl433mqttautodiscovery",
   "description": "Auto-discover device information posted to MQTT by rtl_433",
-  "url": "https://github.com/pbkhrv/hassio-addons/tree/master/rtl_433_mqtt_autodiscovery",
+  "url": "https://github.com/pbkhrv/rtl_433-hass-addons/tree/main/rtl_433_mqtt_autodiscovery",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "startup": "application",
   "boot": "auto",
