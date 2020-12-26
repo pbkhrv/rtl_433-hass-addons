@@ -1,4 +1,4 @@
-# rtl_433 Home Assistant addons
+# rtl_433 Home Assistant add-ons
 
 Collection of Home Assistant addons that work with [rtl_433](https://github.com/merbanan/rtl_433)
 
