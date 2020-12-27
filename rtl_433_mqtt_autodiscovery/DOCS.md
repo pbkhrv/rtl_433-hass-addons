@@ -11,7 +11,7 @@
   * `mqtt_user`
   * `mqtt_password`
   * `rtl_topic`: MQTT topic where rtl_433 is publishing its output. Default is "rtl_433".
-  * `discovery_topic`: MQTT topic prefix where Home Assistant is [looking for discovery information](https://www.home-assistant.io/docs/mqtt/discovery/#discovery_prefix). Default is "homeassistant".
+  * `discovery_prefix`: MQTT topic prefix where Home Assistant is [looking for discovery information](https://www.home-assistant.io/docs/mqtt/discovery/#discovery_prefix). Default is "homeassistant".
   * `discovery_interval`: how often to publish discovery information, in seconds. Default is 600.
 
  4. Start the add-on.
