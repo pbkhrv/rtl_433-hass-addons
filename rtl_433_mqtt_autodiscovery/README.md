@@ -28,4 +28,4 @@ For more details, see [the original script](https://github.com/merbanan/rtl_433/
   * `discovery_topic_prefix`: MQTT topic prefix where Home Assistant is looking for autodiscovery information. Default is "homeassistant".
   * `discovery_interval`: how often to publish autodiscovery information, in seconds. Default is 600.
 
-  4. Start the add-on.
+ 4. Start the add-on.
