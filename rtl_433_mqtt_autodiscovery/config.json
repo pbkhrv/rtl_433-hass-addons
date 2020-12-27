@@ -13,7 +13,7 @@
     "mqtt_user": "",
     "mqtt_password": "",
     "rtl_topic": "rtl_433/+/events",
-    "discovery_prefix": "homeassistant",
+    "discovery_topic": "homeassistant",
     "discovery_interval": 600
   },
   "schema": {
@@ -22,7 +22,7 @@
     "mqtt_user": "str",
     "mqtt_password": "str",
     "rtl_topic": "str",
-    "discovery_prefix": "str",
+    "discovery_topic": "str",
     "discovery_interval": "int"
   }
 }
