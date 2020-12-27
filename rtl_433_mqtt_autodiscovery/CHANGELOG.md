@@ -1,3 +1,3 @@
-## [0.1.2] - 2020-12-26
+## [0.1.3] - 2020-12-26
 
 - Publish the first version of the add-on
