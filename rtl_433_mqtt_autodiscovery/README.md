@@ -1,4 +1,4 @@
-# rtl_433 MQTT Autodiscovery Home Assistant Add-On
+# rtl_433 MQTT Auto Discovery Home Assistant Add-On
 
 This add-on is a simple wrapper around the [rtl_433_mqtt_hass.py](https://github.com/merbanan/rtl_433/blob/a20cd1a62caa52dad97e4a99f8373b2fba3986d9/examples/rtl_433_mqtt_hass.py) script that's part of the excellent [rtl_433 project](https://github.com/merbanan/rtl_433).
 
@@ -10,22 +10,17 @@ Quoting the script's description:
 
 > The configuration topics published by this script tell Home Assistant what MQTT topics to subscribe to in order to receive the data published as device topics by MQTT.
 
-For more details, see [the original script](https://github.com/merbanan/rtl_433/blob/a20cd1a62caa52dad97e4a99f8373b2fba3986d9/examples/rtl_433_mqtt_hass.py).
+For more information, see [the original script](https://github.com/merbanan/rtl_433/blob/a20cd1a62caa52dad97e4a99f8373b2fba3986d9/examples/rtl_433_mqtt_hass.py) and [Home Assistant MQTT discovery documentation](https://www.home-assistant.io/docs/mqtt/discovery/).
+
+## What is rtl_433?
+
+rtl_433 is a software package that reads data from radio/tv (DVB) USB dongles and decodes it. Lots of devices useful for home automation use common radio frequencies to send/receive data (temperature sensors, weather stations, motion detectors, fire/smoke detectors etc). rtl_433 allows you to receive those signals and interpret them without writing complicated signal processing code.
+
+Quoting the [project's documentation](https://github.com/merbanan/rtl_433/blob/master/README.md):
+
+> rtl_433 (despite the name) is a generic data receiver, mainly for the 433.92 MHz, 868 MHz (SRD), 315 MHz, 345 MHz, and 915 MHz ISM bands.
 
 ## Usage
 
- 1. Setup rtl_433 to publish device information to MQTT.
+See [DOCS.md](DOCS.md)
 
- 2. Install this add-on.
-
- 3. Configure this add-on:
-
-  * `mqtt_host`
-  * `mqtt_port`
-  * `mqtt_user`
-  * `mqtt_password`
-  * `rtl_topic`: MQTT topic where rtl_433 is publishing its output. Default is "rtl_433".
-  * `discovery_topic_prefix`: MQTT topic prefix where Home Assistant is looking for autodiscovery information. Default is "homeassistant".
-  * `discovery_interval`: how often to publish autodiscovery information, in seconds. Default is 600.
-
- 4. Start the add-on.

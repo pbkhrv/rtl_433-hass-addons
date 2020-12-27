@@ -1,8 +1,8 @@
 {
-  "name": "rtl_433 MQTT Autodiscovery",
-  "version": "0.1.0",
+  "name": "rtl_433 MQTT Auto Discovery",
+  "version": "0.1.1",
   "slug": "rtl433mqttautodiscovery",
-  "description": "Auto-discover device information posted to MQTT by rtl_433",
+  "description": "Automatically discover device information posted to MQTT by rtl_433",
   "url": "https://github.com/pbkhrv/rtl_433-hass-addons/tree/main/rtl_433_mqtt_autodiscovery",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "startup": "application",
@@ -13,7 +13,7 @@
     "mqtt_user": "",
     "mqtt_password": "",
     "rtl_topic": "rtl_433/+/events",
-    "discovery_topic_prefix": "homeassistant",
+    "discovery_prefix": "homeassistant",
     "discovery_interval": 600
   },
   "schema": {
@@ -22,7 +22,7 @@
     "mqtt_user": "str",
     "mqtt_password": "str",
     "rtl_topic": "str",
-    "discovery_topic_prefix": "str",
+    "discovery_prefix": "str",
     "discovery_interval": "int"
   }
 }
