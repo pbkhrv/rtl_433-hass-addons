@@ -1,8 +1,14 @@
-# rtl_433 MQTT Auto Discovery Home Assistant Add-On
+# rtl_433 MQTT Auto Discovery Home Assistant Add-on
 
-This add-on is a simple wrapper around the [rtl_433_mqtt_hass.py](https://github.com/merbanan/rtl_433/blob/a20cd1a62caa52dad97e4a99f8373b2fba3986d9/examples/rtl_433_mqtt_hass.py) script that's part of the excellent [rtl_433 project](https://github.com/merbanan/rtl_433).
+## About
 
-Quoting the script's description:
+This add-on is a simple wrapper around the [rtl_433_mqtt_hass.py](https://github.com/merbanan/rtl_433/blob/a20cd1a62caa52dad97e4a99f8373b2fba3986d9/examples/rtl_433_mqtt_hass.py) script that's part of the excellent [rtl_433] project(https://github.com/merbanan/rtl_433).
+
+rtl_433 is a software package that receives wireless sensor data via [one of the supported SDR dongles](https://triq.org/rtl_433/HARDWARE.html), decodes and outputs it in a variety of formats including JSON and MQTT. The wireless sensors that rtl_433 understands transmit data mostly on 433.92 MHz, 868 MHz, 315 MHz, 345 MHz, and 915 MHz ISM bands.
+
+## How it works
+
+All the add-on does is run rtl_433_mqtt_hass.py inside the Home Assistant OS supervisor. Quoting the script's description:
 
 > Publish Home Assistant MQTT auto discovery topics for rtl_433 devices.
 
@@ -12,15 +18,21 @@ Quoting the script's description:
 
 For more information, see [the original script](https://github.com/merbanan/rtl_433/blob/a20cd1a62caa52dad97e4a99f8373b2fba3986d9/examples/rtl_433_mqtt_hass.py) and [Home Assistant MQTT discovery documentation](https://www.home-assistant.io/docs/mqtt/discovery/).
 
-## What is rtl_433?
+## Prerequisites
 
-rtl_433 is a software package that reads data from radio/tv (DVB) USB dongles and decodes it. Lots of devices useful for home automation use common radio frequencies to send/receive data (temperature sensors, weather stations, motion detectors, fire/smoke detectors etc). rtl_433 allows you to receive those signals and interpret them without writing complicated signal processing code.
+ 1. rtl_433 running and publishing "events" and "device" data to MQTT. If you would like to set it up on the same machine that's running the Home Assistant OS, the simplest way might be to use the [rtl_433 Home Assistant Add-on](https://github.com/pbkhrv/rtl_433-hass-addons/tree/main/rtl_433).
 
-Quoting the [project's documentation](https://github.com/merbanan/rtl_433/blob/master/README.md):
+## Installation
 
-> rtl_433 (despite the name) is a generic data receiver, mainly for the 433.92 MHz, 868 MHz (SRD), 315 MHz, 345 MHz, and 915 MHz ISM bands.
+To install this Home Assistant add-on you need to add the rtl_433 add-on repository first: Navigate to the "Add-on store" tab in the Supervisor panel and enter https://github.com/pbkhrv/rtl_433-hass-addons in the "Add repository" field after selecting "Repositories" from the top-right menu. Now scroll down and select the "rtl_433 MQTT Auto Discovery" add-on.
 
-## Usage
+## Configuration
 
-See [DOCS.md](DOCS.md)
+  * `mqtt_host`
+  * `mqtt_port`
+  * `mqtt_user`
+  * `mqtt_password`
+  * `rtl_topic`: MQTT topic where rtl_433 is publishing its output. Default is "rtl_433".
+  * `discovery_prefix`: MQTT topic prefix where Home Assistant is [looking for discovery information](https://www.home-assistant.io/docs/mqtt/discovery/#discovery_prefix). Default is "homeassistant".
+  * `discovery_interval`: how often to publish discovery information, in seconds. Default is 600.
 
