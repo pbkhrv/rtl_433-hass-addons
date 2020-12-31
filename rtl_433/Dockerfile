@@ -31,6 +31,9 @@ RUN apk add --no-cache --virtual build-deps alpine-sdk cmake git libusb-dev && \
     rm -r /tmp/src && \
     apk add --no-cache libusb
 
+# Special library path for aarch64 systems
+ENV LD_LIBRARY_PATH=/usr/local/lib64:${LD_LIBRARY_PATH}
+
 # Run script
 COPY run.sh /
 RUN chmod a+x /run.sh
