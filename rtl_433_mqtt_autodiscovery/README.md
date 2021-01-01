@@ -6,6 +6,57 @@ This add-on is a simple wrapper around the [rtl_433_mqtt_hass.py](https://github
 
 rtl_433 is a software package that receives wireless sensor data via [one of the supported SDR dongles](https://triq.org/rtl_433/HARDWARE.html), decodes and outputs it in a variety of formats including JSON and MQTT. The wireless sensors that rtl_433 understands transmit data mostly on 433.92 MHz, 868 MHz, 315 MHz, 345 MHz, and 915 MHz ISM bands.
 
+## What sensors/devices does this script support?
+
+The script looks for specific bits of data in rtl_433's output to figure out what kind of sensor the data is coming from and to help Home Assistant handle it appropriately.
+
+More specifically, this script looks for the following keys in rtl_433's event data:
+```
+alarm
+battery_ok
+depth_cm
+gust_speed_km_h
+gust_speed_m_s
+humidity
+lux
+moisture
+noise
+power_W
+pressure_hPa
+rain_in
+rain_mm
+rain_mm_h
+rain_rate_in_h
+rssi
+snr
+storm_dist
+strike_count
+strike_distance
+tamper
+temperature_1_C
+temperature_2_C
+temperature_C
+temperature_F
+uv
+wind_avg_km_h
+wind_avg_m_s
+wind_avg_mi_h
+wind_dir_deg
+wind_max_m_s
+wind_speed_km_h
+wind_speed_m_s
+```
+
+In cases where none of the keys above appear, the script ignores the device that the event came from and doesn't notify Home Assistant about it.
+
+### How do I check whether my sensor is supported?
+
+One way to find out is to run rtl_433 with an SDR dongle attached on a computer other than your Home Assistant OS install, with `-F json` command line argument and check the contents of events output by rtl_433. If you don't see any of the keys mentioned above, then this script won't be able to send auto discovery information to HA for that particular sensor.
+
+### What do I do if my sensor is not supported?
+
+You can use one of the MQTT HA integrations to configure `binary_sensor` or `sensor` or device trigger etc manually. See [documentation](https://www.home-assistant.io/integrations/#search/mqtt) for details and search the [HA forum](https://community.home-assistant.io/search?q=mqtt%20sensor).
+
 ## How it works
 
 All the add-on does is run rtl_433_mqtt_hass.py inside the Home Assistant OS supervisor. Quoting the script's description:
