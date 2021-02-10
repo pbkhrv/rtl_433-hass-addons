@@ -1,6 +1,6 @@
 {
   "name": "rtl_433",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "slug": "rtl433",
   "description": "Receive wireless sensor data via an SDR dongle and rtl_433",
   "url": "https://github.com/pbkhrv/rtl_433-hass-addons/tree/main/rtl_433",
@@ -8,7 +8,7 @@
   "startup": "application",
   "boot": "auto",
   "map": ["config"],
-  "devices": ["/dev/bus/usb:/dev/bus/usb:rwm"],
+  "usb": true,
   "options": {
     "rtl_433_conf_file": "rtl_433/rtl_433.conf"
   },
