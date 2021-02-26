@@ -1,3 +1,7 @@
+## [0.1.6] - 2021-02-25
+
+- Remove `device_class` `"weather"` from whatever devices are still using it (#5)
+
 ## [0.1.5] - 2021-01-01
 
 - Docs: explain which sensors are supported

@@ -19,9 +19,8 @@ RUN pip3 install --no-cache paho-mqtt
 # (latest as of 12/25/2020)
 RUN mkdir /tmp/build && \
     cd /tmp/build && \
-    git clone https://github.com/merbanan/rtl_433 && \
+    git clone https://github.com/pbkhrv/rtl_433 && \
     cd rtl_433 && \
-    git checkout a20cd1a62caa52dad97e4a99f8373b2fba3986d9 && \
     cp examples/rtl_433_mqtt_hass.py /rtl_433_mqtt_hass.py && \
     rm -rf /tmp/build
 
