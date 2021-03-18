@@ -21,6 +21,7 @@ RUN mkdir /tmp/build && \
     cd /tmp/build && \
     git clone https://github.com/pbkhrv/rtl_433 && \
     cd rtl_433 && \
+    git checkout 29c04d8b412eb09f4cd1db4b363050d2d72e9065 && \
     cp examples/rtl_433_mqtt_hass.py /rtl_433_mqtt_hass.py && \
     rm -rf /tmp/build
 
