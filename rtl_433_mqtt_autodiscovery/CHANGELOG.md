@@ -1,3 +1,7 @@
+## [0.1.8] - 2021-05-24
+
+- Add "MQTT retain" flag
+
 ## [0.1.7] - 2021-03-17
 
 - Remove old `device_class` `"moisture"`, `"safety"` and `"depth"` from whatever devices are still using them

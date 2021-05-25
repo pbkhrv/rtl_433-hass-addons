@@ -91,6 +91,7 @@ To install this Home Assistant add-on you need to add the rtl_433 add-on reposit
   * `mqtt_port`
   * `mqtt_user`
   * `mqtt_password`
+  * `mqtt_retain`: MQTT broker will retain configuration topics between restarts if this is set to true. Default is `false`.
   * `rtl_topic`: MQTT topic where rtl_433 is publishing its output. Default is "rtl_433".
   * `discovery_prefix`: MQTT topic prefix where Home Assistant is [looking for discovery information](https://www.home-assistant.io/docs/mqtt/discovery/#discovery_prefix). Default is "homeassistant".
   * `discovery_interval`: how often to publish discovery information, in seconds. Default is 600.
