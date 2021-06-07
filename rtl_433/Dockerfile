@@ -1,38 +1,40 @@
 ARG BUILD_FROM
+FROM $BUILD_FROM as builder
+MAINTAINER pbkhrv@pm.me
+
+ENV LANG C.UTF-8
+
+# Copied with minor edits from https://github.com/hertzg/rtl_433_docker/blob/master/images/alpine/build-context/Dockerfile
+RUN apk add --no-cache --virtual .buildDeps \
+    build-base \
+    libusb-dev \
+    librtlsdr-dev \
+    cmake \
+    git
+
+WORKDIR /build
+RUN git clone https://github.com/merbanan/rtl_433
+WORKDIR ./rtl_433
+
+ARG rtl433GitRevision=21.05
+RUN git checkout ${rtl433GitRevision}
+WORKDIR ./build
+RUN cmake ..
+RUN make -j 4
+
+WORKDIR /build/root
+WORKDIR /build/rtl_433/build
+RUN make DESTDIR=/build/root/ install
+RUN ls -lah /build/root
+
 FROM $BUILD_FROM
 
 ENV LANG C.UTF-8
 
-MAINTAINER pbkhrv@pm.me
-
-#
-# Build and install rtl-sdr and rtl_433
-# Copied with minor edits from https://github.com/james-fry/hassio-addons/tree/master/rtl4332mqtt
-#
-RUN apk add --no-cache --virtual build-deps alpine-sdk cmake git libusb-dev && \
-    mkdir /tmp/src && \
-    cd /tmp/src && \
-    git clone git://git.osmocom.org/rtl-sdr.git && \
-    mkdir /tmp/src/rtl-sdr/build && \
-    cd /tmp/src/rtl-sdr/build && \
-    cmake ../ -DINSTALL_UDEV_RULES=ON -DDETACH_KERNEL_DRIVER=ON -DCMAKE_INSTALL_PREFIX:PATH=/usr/local && \
-    make && \
-    make install && \
-    chmod +s /usr/local/bin/rtl_* && \
-    cd /tmp/src/ && \
-    git clone https://github.com/merbanan/rtl_433 && \
-    cd rtl_433/ && \
-    mkdir build && \
-    cd build && \
-    cmake ../ && \
-    make && \
-    make install && \
-    apk del build-deps && \
-    rm -r /tmp/src && \
-    apk add --no-cache libusb
-
-# Special library path for aarch64 systems
-ENV LD_LIBRARY_PATH=/usr/local/lib64:${LD_LIBRARY_PATH}
+RUN apk add --no-cache libusb \
+    librtlsdr
+WORKDIR /root
+COPY --from=builder /build/root/ /
 
 # Run script
 COPY run.sh /
