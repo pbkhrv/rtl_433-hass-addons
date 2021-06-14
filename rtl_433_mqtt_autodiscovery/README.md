@@ -21,6 +21,7 @@ humidity
 lux
 moisture
 noise
+opening
 power_W
 pressure_hPa
 rain_in

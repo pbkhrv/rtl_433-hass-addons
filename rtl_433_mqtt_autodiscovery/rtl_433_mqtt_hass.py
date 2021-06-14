@@ -340,7 +340,7 @@ mappings = {
         }
     },
 
-    "opening": {
+    "opened": {
         "device_type": "binary_sensor",
         "object_suffix": "opened",
         "config": {
