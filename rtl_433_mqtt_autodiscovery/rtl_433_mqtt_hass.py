@@ -342,8 +342,9 @@ mappings = {
 
     "opening": {
         "device_type": "binary_sensor",
-        "object_suffix": "opening",
+        "object_suffix": "opened",
         "config": {
+            "device_class": "opening",
             "force_update": "true",
             "payload_on": "1",
             "payload_off": "0"
