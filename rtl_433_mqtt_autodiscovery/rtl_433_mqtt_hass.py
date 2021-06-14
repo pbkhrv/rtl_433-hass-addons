@@ -340,6 +340,16 @@ mappings = {
         }
     },
 
+    "opening": {
+        "device_type": "binary_sensor",
+        "object_suffix": "opening",
+        "config": {
+            "force_update": "true",
+            "payload_on": "1",
+            "payload_off": "0"
+        }
+    },
+
     "alarm": {
         "device_type": "binary_sensor",
         "object_suffix": "alarm",
