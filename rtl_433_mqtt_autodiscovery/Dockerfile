@@ -3,7 +3,7 @@ FROM $BUILD_FROM
 
 ENV LANG C.UTF-8
 
-MAINTAINER pbkhrv@pm.me
+MAINTAINER brett@juicedwheels.com
 
 # Install latest pip
 RUN python3 -m ensurepip && \

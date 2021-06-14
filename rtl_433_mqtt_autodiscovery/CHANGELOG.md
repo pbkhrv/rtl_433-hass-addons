@@ -1,3 +1,6 @@
+## [0.1.8] - 2021-06-13
+
+- Add HASS support for binary sensor opening
 ## [0.1.8] - 2021-05-24
 
 - Add "MQTT retain" flag
