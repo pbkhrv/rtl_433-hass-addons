@@ -1,4 +1,4 @@
-## [0.1.8] - 2021-06-13
+## [0.1.9] - 2021-06-13
 
 - Add HASS support for binary sensor opening
 ## [0.1.8] - 2021-05-24
