@@ -18,6 +18,19 @@ then
     mkdir -p $conf_directory
 fi
 
+# Check if the legacy configuration file is set and alert that it's deprecated.
+conf_file=$(bashio::config "rtl_433_conf_file")
+
+if [[ $conf_file != "" ]]
+then
+    bashio::log.warning "rtl_433 now supports automatic configuration and multiple radios. The rtl_433_conf_file option is deprecated. See the documentation for migration instructions."
+    conf_file="/config/$conf_file"
+
+    echo "Starting rtl_433 -c $conf_file"
+    rtl_433 -c "$conf_file"
+    exit $?
+fi
+
 # Create a reasonable default configuration in /config/rtl_433.
 if [ ! "$(ls -A $conf_directory)" ]
 then
