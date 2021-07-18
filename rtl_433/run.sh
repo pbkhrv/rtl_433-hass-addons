@@ -55,7 +55,7 @@ rtl_433_pids=()
 for template in $conf_directory/*.conf.template
 do
     # Remove '.template' from the file name.
-    live=$(echo $template | rev | cut -c 10- | rev)
+    live=$(basename $template .template)
 
     # By sourcing the template, we can substitute any environment variable in
     # the template. In fact, enterprising users could write _any_ valid bash
