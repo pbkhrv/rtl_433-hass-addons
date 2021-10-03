@@ -1,6 +1,6 @@
 {
   "name": "rtl_433 MQTT Auto Discovery",
-  "version": "0.1.8",
+  "version": "0.2.1",
   "slug": "rtl433mqttautodiscovery",
   "description": "Automatic discovery of rtl_433 device information via MQTT",
   "url": "https://github.com/pbkhrv/rtl_433-hass-addons/tree/main/rtl_433_mqtt_autodiscovery",

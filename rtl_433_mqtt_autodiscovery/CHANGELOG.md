@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## [0.2.0] - 2021-10-03
+## [0.2.1] - 2021-10-03
 
 - Use local copy of rtl_433 discovery script to incorporate changes not merged upstream
 - Use add-on services connection to MQTT server
