@@ -78,21 +78,17 @@ This add-on doesn't do anything useful unless you already have rtl_433 running a
 To install this Home Assistant add-on you need to add the rtl_433 add-on repository first:
 
  1. Navigate to the "Add-on store" tab in the Supervisor panel
- 
+
  2. Click the menu button in the top right corner and select "Repositories"
- 
+
  3. Enter https://github.com/pbkhrv/rtl_433-hass-addons in the "Add repository" field.
- 
+
  4. Scroll down, select the "rtl_433 MQTT Auto Discovery" add-on and install it.
 
 ## Configuration
 
-  * `mqtt_host`
-  * `mqtt_port`
-  * `mqtt_user`
-  * `mqtt_password`
-  * `mqtt_retain`: MQTT broker will retain configuration topics between restarts if this is set to true. Default is `false`.
-  * `rtl_topic`: MQTT topic where rtl_433 is publishing its output. Default is "rtl_433".
-  * `discovery_prefix`: MQTT topic prefix where Home Assistant is [looking for discovery information](https://www.home-assistant.io/docs/mqtt/discovery/#discovery_prefix). Default is "homeassistant".
-  * `discovery_interval`: how often to publish discovery information, in seconds. Default is 600.
-
+* `mqtt_retain`: MQTT broker will retain configuration topics between restarts if this is set to true. Default is `false`.
+* `rtl_topic`: MQTT topic where rtl_433 is publishing its output. Default is "rtl_433".
+* `discovery_prefix`: MQTT topic prefix where Home Assistant is [looking for discovery information](https://www.home-assistant.io/docs/mqtt/discovery/#discovery_prefix). Default is "homeassistant".
+* `discovery_interval`: how often to publish discovery information, in seconds. Default is 600.
+* `force_update`: Use `force_update` flag in discovery configuration. See details [here](https://www.home-assistant.io/integrations/sensor.mqtt/#force_update).

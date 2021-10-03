@@ -8,23 +8,18 @@
   "startup": "application",
   "boot": "auto",
   "options": {
-    "mqtt_host": "hassio",
-    "mqtt_port": 1883,
-    "mqtt_user": "",
-    "mqtt_password": "",
     "mqtt_retain": false,
     "rtl_topic": "rtl_433/+/events",
     "discovery_prefix": "homeassistant",
-    "discovery_interval": 600
+    "discovery_interval": 600,
+    "force_update": false
   },
   "schema": {
-    "mqtt_host": "str",
-    "mqtt_port": "int",
-    "mqtt_user": "str",
-    "mqtt_password": "str",
     "mqtt_retain": "bool",
     "rtl_topic": "str",
     "discovery_prefix": "str",
-    "discovery_interval": "int"
-  }
+    "discovery_interval": "int",
+    "force_update": "bool"
+  },
+  "services": ["mqtt:need"]
 }
