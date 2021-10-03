@@ -2,7 +2,7 @@
 
 MQTT_HOST=$(bashio::services mqtt "host")
 MQTT_PORT=$(bashio::services mqtt "port")
-MQTT_USER=$(bashio::services mqtt "username")
+MQTT_USERNAME=$(bashio::services mqtt "username")
 MQTT_PASSWORD=$(bashio::services mqtt "password")
 RTL_TOPIC=$(bashio::config "rtl_topic")
 DISCOVERY_PREFIX=$(bashio::config "discovery_prefix")
@@ -17,4 +17,4 @@ if bashio::config.true "force_update"; then
 fi
 
 echo "Starting rtl_433_mqtt_hass.py..."
-python3 /rtl_433_mqtt_hass.py -d -u $MQTT_USER -P $MQTT_PASSWORD -H $MQTT_HOST -p $MQTT_PORT -R "$RTL_TOPIC" -D "$DISCOVERY_PREFIX" -i $DISCOVERY_INTERVAL $OTHER_ARGS
+python3 /rtl_433_mqtt_hass.py -d -H $MQTT_HOST -p $MQTT_PORT -R "$RTL_TOPIC" -D "$DISCOVERY_PREFIX" -i $DISCOVERY_INTERVAL $OTHER_ARGS
