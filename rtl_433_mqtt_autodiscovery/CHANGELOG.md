@@ -5,7 +5,6 @@
 - Use local copy of rtl_433 discovery script to incorporate changes not merged upstream
 - Use add-on services connection to MQTT server
 - Add support for "force_update" flag on discovery
-- Change add-on base to use `ghcr.io/hassio-addons/base`
 
 ## [0.1.8] - 2021-05-24
 

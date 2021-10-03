@@ -1,25 +1,40 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base/amd64:10.1.0
+ARG BUILD_FROM=homeassistant/amd64-base-python:3.9-alpine3.13
 FROM ${BUILD_FROM}
 
 ENV LANG C.UTF-8
 
-MAINTAINER pbkhrv@pm.me
+# Copy files from root folder
+COPY run.sh rtl_433_mqtt_hass.py requirements.txt /
 
-# Install latest pip
-RUN python3 -m ensurepip && \
-    pip3 install --no-cache --upgrade pip
-
-# Install rtl_433 mqtt bridge prereq
-RUN pip3 install --no-cache paho-mqtt
-
-# Clone rtl_433 repo and copy the latest tested version of the mqtt bridge script
-# (latest as of 12/25/2020)
-# RUN curl -LO https://github.com/pbkhrv/rtl_433/raw/29c04d8b412eb09f4cd1db4b363050d2d72e9065/examples/rtl_433_mqtt_hass.py && \
-#   chmod +x /rtl_433_mqtt_hass.py
-
-# Run script
-# COPY run.sh /
-COPY run.sh rtl_433_mqtt_hass.py /
-RUN chmod a+x /run.sh
+# Setup base
+ARG BUILD_ARCH=amd64
+# hadolint ignore=DL3003
+RUN \
+    apk add --no-cache --virtual .build-dependencies \
+        build-base=0.5-r2 \
+        libffi-dev=3.3-r2 \
+        openssl-dev=1.1.1l-r0 \
+        py3-wheel=0.36.2-r2 \
+        python3-dev=3.9.5-r1 \
+    \
+    && apk add --no-cache \
+        py3-pip=20.3.4-r1 \
+        py3-bcrypt=3.2.0-r3 \
+        python3=3.9.5-r1 \
+    \
+    && pip install \
+        --no-cache-dir \
+        --prefer-binary \
+        --find-links "https://wheels.home-assistant.io/alpine-3.14/${BUILD_ARCH}/" \
+        -r /requirements.txt \
+    \
+    && find /usr/local \
+        \( -type d -a -name test -o -name tests -o -name '__pycache__' \) \
+        -o \( -type f -a -name '*.pyc' -o -name '*.pyo' \) \
+        -exec rm -rf '{}' + \
+    \
+    && apk del --no-cache --purge .build-dependencies \
+    \
+    && chmod a+x /run.sh
 
 CMD [ "/run.sh" ]
