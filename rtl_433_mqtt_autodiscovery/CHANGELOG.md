@@ -1,5 +1,3 @@
-# CHANGELOG
-
 ## [0.2.1] - 2021-10-03
 
 - Use local copy of rtl_433 discovery script to incorporate changes not merged upstream
