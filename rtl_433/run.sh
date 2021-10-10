@@ -68,7 +68,8 @@ do
     source /tmp/rtl_433_heredoc
 
     echo "Starting rtl_433 with $live..."
-    rtl_433 -c "$live"&
+    tag=$(basename $live .conf)
+    rtl_433 -c "$live" > >(sed "s/^/[$tag] /") 2> >(>&2 sed "s/^/[$tag] /")&
     rtl_433_pids+=($!)
 done
 
