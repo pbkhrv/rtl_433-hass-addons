@@ -2,17 +2,12 @@
 
 conf_directory="/config/rtl_433"
 
-# See https://stackoverflow.com/a/34407620
-uriencode() {
-  jq -sRr @uri
-}
-
 if bashio::services.available "mqtt"; then
-    host=$(bashio::services "mqtt" "host" | uriencode)
-    password=$(bashio::services "mqtt" "password" | uriencode )
-    port=$(bashio::services "mqtt" "port" | uriencode)
-    username=$(bashio::services "mqtt" "username" | uriencode)
-    retain=$(bashio::config "retain" | uriencode)
+    host=$(bashio::services "mqtt" "host")
+    password=$(bashio::services "mqtt" "password")
+    port=$(bashio::services "mqtt" "port")
+    username=$(bashio::services "mqtt" "username")
+    retain=$(bashio::config "retain")
 else
     bashio::log.info "The mqtt addon is not available."
     bashio::log.info "Manually update the output line in the configuration file with mqtt connection settings, and restart the addon."
