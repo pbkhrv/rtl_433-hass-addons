@@ -36,17 +36,19 @@ Once you get the rtl_433 sensor data into MQTT, you'll need to help Home Assista
 
  3. Install the add-on.
 
- 4. Configure the add-on
-
-  * Set the `rtl_433_conf_file` key to match the path to the config file you uploaded in step 2 (without the "/config" in the beginning, so if you saved your file to `/config/rtl_433/rtl_433.conf`, then specify only `rtl_433/rtl_433.conf` part).
-
  5. Plug your SDR dongle to the machine running the add-on.
+
+ 5. Start the addon. A default configuration will be created in `/config/rtl_433/`. To add or edit additional configurations, create multiple `.conf.template` files in that directory.
 
  6. Start the add-on and check the logs.
 
 ## Configuration
 
-First, take a look at the example config file included in the rtl_433 source code: [rtl_433.example.conf](https://github.com/merbanan/rtl_433/blob/master/conf/rtl_433.example.conf)
+For a "zero configuration" setup, install the [Mosquitto broker](https://github.com/home-assistant/addons/blob/master/mosquitto/DOCS.md) addon. While other brokers may work, they are not tested and will require manual setup. Once the addon is installed, start or restart the rtl_433 and rtl_433_mqtt_autodiscovery addons to start capturing known 433 MHz protocols.
+
+For more advanced configuration, take a look at the example config file included in the rtl_433 source code: [rtl_433.example.conf](https://github.com/merbanan/rtl_433/blob/master/conf/rtl_433.example.conf)
+
+The `retain` option controls if MQTT's `retain` flag is enabled or disabled by default. It can be overridden on a per-radio basis by setting `retain` to `true` or `false` in the `output` setting.
 
 Assuming that you intend to get the rtl_433 data into Home Assistant, the absolute minimum that you need to specify in the config file is the [MQTT connection and authentication information](https://triq.org/rtl_433/OPERATION.html#mqtt-output):
 

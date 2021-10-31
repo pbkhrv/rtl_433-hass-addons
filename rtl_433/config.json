@@ -7,12 +7,16 @@
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "startup": "application",
   "boot": "auto",
-  "map": ["config"],
+  "map": ["config:rw"],
+  "services": ["mqtt:want"],
   "usb": true,
+  "udev": true,
   "options": {
-    "rtl_433_conf_file": "rtl_433/rtl_433.conf"
+    "rtl_433_conf_file": "",
+    "retain": true
   },
   "schema": {
-    "rtl_433_conf_file": "str"
+    "rtl_433_conf_file": "str?",
+    "retain": "bool"
   }
 }
