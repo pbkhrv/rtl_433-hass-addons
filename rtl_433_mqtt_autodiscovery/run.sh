@@ -17,4 +17,4 @@ if bashio::config.true "force_update"; then
 fi
 
 echo "Starting rtl_433_mqtt_hass.py..."
-python3 /rtl_433_mqtt_hass.py -d -H $MQTT_HOST -p $MQTT_PORT -R "$RTL_TOPIC" -D "$DISCOVERY_PREFIX" -i $DISCOVERY_INTERVAL $OTHER_ARGS
+python3 -u /rtl_433_mqtt_hass.py -d -H $MQTT_HOST -p $MQTT_PORT -R "$RTL_TOPIC" -D "$DISCOVERY_PREFIX" -i $DISCOVERY_INTERVAL $OTHER_ARGS
