@@ -2,8 +2,8 @@
 
 MQTT_HOST=$(bashio::services mqtt "host")
 MQTT_PORT=$(bashio::services mqtt "port")
-MQTT_USERNAME=$(bashio::services mqtt "username")
-MQTT_PASSWORD=$(bashio::services mqtt "password")
+export MQTT_USERNAME=$(bashio::services mqtt "username")
+export MQTT_PASSWORD=$(bashio::services mqtt "password")
 RTL_TOPIC=$(bashio::config "rtl_topic")
 DISCOVERY_PREFIX=$(bashio::config "discovery_prefix")
 DISCOVERY_INTERVAL=$(bashio::config "discovery_interval")
