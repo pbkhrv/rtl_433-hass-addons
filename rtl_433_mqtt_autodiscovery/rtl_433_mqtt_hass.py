@@ -646,6 +646,7 @@ def run():
 
 
 if __name__ == "__main__":
+    logging.getLogger().setLevel(logging.INFO)
 
     parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter,
                                      description=AP_DESCRIPTION,
@@ -676,7 +677,6 @@ if __name__ == "__main__":
                         help="Interval to republish config topics in seconds (default: %(default)d)")
     args = parser.parse_args()
 
-    logging.info(str(args))
     if args.debug and args.quiet:
         logging.critical("Debug and quiet can not be specified at the same time")
         exit(1)
