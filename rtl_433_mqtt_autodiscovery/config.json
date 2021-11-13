@@ -8,6 +8,10 @@
   "startup": "application",
   "boot": "auto",
   "options": {
+    "mqtt_host": "",
+    "mqtt_port": "",
+    "mqtt_user": "",
+    "mqtt_password": "",
     "mqtt_retain": false,
     "rtl_topic": "rtl_433/+/events",
     "discovery_prefix": "homeassistant",
@@ -15,6 +19,10 @@
     "force_update": false
   },
   "schema": {
+    "mqtt_host": "str?",
+    "mqtt_port": "int?",
+    "mqtt_user": "str?",
+    "mqtt_password": "str?",
     "mqtt_retain": "bool",
     "rtl_topic": "str",
     "discovery_prefix": "str",
