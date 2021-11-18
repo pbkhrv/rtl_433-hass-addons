@@ -87,6 +87,15 @@ To install this Home Assistant add-on you need to add the rtl_433 add-on reposit
 
 ## Configuration
 
+By default, this addon assumes the official Mosquitto addon is installed. In that case, the MQTT connection information is determined automatically. Otherwise, to use an external broker, provide the following configuration options:
+
+* `mqtt_host`
+* `mqtt_port`
+* `mqtt_user`
+* `mqtt_password`
+
+The following options apply to all broker configurations:
+
 * `mqtt_retain`: MQTT broker will retain configuration topics between restarts if this is set to true. Default is `false`.
 * `rtl_topic`: MQTT topic where rtl_433 is publishing its output. Default is "rtl_433".
 * `discovery_prefix`: MQTT topic prefix where Home Assistant is [looking for discovery information](https://www.home-assistant.io/docs/mqtt/discovery/#discovery_prefix). Default is "homeassistant".
