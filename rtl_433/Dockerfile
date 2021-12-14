@@ -16,7 +16,7 @@ WORKDIR /build
 RUN git clone https://github.com/merbanan/rtl_433
 WORKDIR ./rtl_433
 
-ARG rtl433GitRevision=21.05
+ARG rtl433GitRevision=21.12
 RUN git checkout ${rtl433GitRevision}
 WORKDIR ./build
 RUN cmake ..
