@@ -4,7 +4,7 @@ FROM ${BUILD_FROM}
 # Copy files from root folder
 COPY run.sh /
 
-RUN wget https://raw.githubusercontent.com/merbanan/rtl_433/master/examples/rtl_433_mqtt_hass.pyi -O /rtl_433_mqtt_hass.py
+RUN wget https://raw.githubusercontent.com/merbanan/rtl_433/master/examples/rtl_433_mqtt_hass.py -O /rtl_433_mqtt_hass.py
 
 RUN \
     pip install \
