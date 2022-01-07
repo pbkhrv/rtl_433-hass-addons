@@ -2,7 +2,7 @@ ARG BUILD_FROM=homeassistant/amd64-base-python:3.9-alpine3.13
 FROM ${BUILD_FROM}
 
 # Copy files from root folder
-COPY run.sh rtl_433_mqtt_hass.py /
+COPY run.sh /
 
 RUN wget https://raw.githubusercontent.com/merbanan/rtl_433/master/examples/rtl_433_mqtt_hass.pyi -O /rtl_433_mqtt_hass.py
 
