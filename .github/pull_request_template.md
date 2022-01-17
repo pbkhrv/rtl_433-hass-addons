@@ -10,19 +10,19 @@
      addon users.
      -->
 
-# Summary
+## Summary
 
 <!-- Write a summary of what you're trying to solve, with links to any relevant
      issues, and how this PR solves it.
      -->
 
-# Alternatives Considered
+## Alternatives Considered
 
 <!-- Are there other ways to add the feature or solve the bug you considered?
      Why didn't you pursue them further?
      -->
 
-# Testing Steps
+## Testing Steps
 
 1. First...
 2. Then...
