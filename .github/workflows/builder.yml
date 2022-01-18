@@ -9,7 +9,6 @@ on:
 jobs:
   build:
     name: Build ${{ matrix.arch }} ${{ matrix.service }} addon
-    needs: init
     runs-on: ubuntu-latest
     strategy:
       matrix:
