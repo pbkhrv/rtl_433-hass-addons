@@ -20,6 +20,7 @@ jobs:
         args: |
           --test \
           --all \
+          --version ${{github.ref_name}} \
           --target rtl_433
   build_rtl_433_mqtt_autodiscovery:
     name: Build rtl_433_mqtt_autodiscovery addon
@@ -34,4 +35,5 @@ jobs:
         args: |
           --test \
           --all \
+          --version ${{github.ref_name}} \
           --target rtl_433_mqtt_autodiscovery
