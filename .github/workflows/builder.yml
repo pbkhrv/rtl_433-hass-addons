@@ -27,6 +27,7 @@ jobs:
         args: |
           --test \
           --all \
+          --docker-hub ghcr.io/pbkhrv \
           --version $GITHUB_REF_SLUG \
           --target rtl_433
 
@@ -47,5 +48,6 @@ jobs:
         args: |
           --test \
           --all \
+          --docker-hub ghcr.io/pbkhrv \
           --version $GITHUB_REF_SLUG \
           --target rtl_433_mqtt_autodiscovery
