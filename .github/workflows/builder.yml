@@ -24,7 +24,7 @@ jobs:
         args: |
           --test \
           --all \
-          --version $GITHUB_REF_SLUG$ \
+          --version $GITHUB_REF_SLUG \
           --target rtl_433
 
   build_rtl_433_mqtt_autodiscovery:
