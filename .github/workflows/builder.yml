@@ -12,15 +12,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Inject slug/short variables
+      uses: rlespinasse/github-slug-action@v4
+
     - name: Checkout the repository
       uses: actions/checkout@v2
+
     - name: Test build
       uses: home-assistant/builder@master
       with:
         args: |
           --test \
           --all \
-          --version ${{github.ref_name}} \
+          --version $GITHUB_REF_SLUG$ \
           --target rtl_433
 
   build_rtl_433_mqtt_autodiscovery:
@@ -28,13 +32,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Inject slug/short variables
+      uses: rlespinasse/github-slug-action@v4
+
     - name: Checkout the repository
       uses: actions/checkout@v2
+
     - name: Test build
       uses: home-assistant/builder@master
       with:
         args: |
           --test \
           --all \
-          --version ${{github.ref_name}} \
+          --version $GITHUB_REF_SLUG \
           --target rtl_433_mqtt_autodiscovery
