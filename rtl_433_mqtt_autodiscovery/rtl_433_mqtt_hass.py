@@ -284,6 +284,16 @@ mappings = {
         }
     },
 
+    "wind_max_km_h": {
+        "device_type": "sensor",
+        "object_suffix": "WS",
+        "config": {
+            "name": "Wind Speed Max",
+            "unit_of_measurement": "km/h",
+            "value_template": "{{ float(value|float) * 3.6 }}"
+        }
+    },
+
     "gust_speed_km_h": {
         "device_type": "sensor",
         "object_suffix": "GS",
@@ -324,6 +334,16 @@ mappings = {
         }
     },
 
+    "flags": {
+        "device_type": "sensor",
+        "object_suffix": "WD",
+        "config": {
+            "name": "Wind Direction",
+            "unit_of_measurement": "°",
+            "value_template": "{{ value|float }}"
+        }
+    },
+
     "rain_mm": {
         "device_type": "sensor",
         "object_suffix": "RT",
@@ -333,7 +353,17 @@ mappings = {
             "value_template": "{{ value|float }}"
         }
     },
-
+  
+    "rain": {
+        "device_type": "sensor",
+        "object_suffix": "RT",
+        "config": {
+            "name": "Rain Total",
+            "unit_of_measurement": "mm",
+            "value_template": "{{ value|float }}"
+        }
+    },
+  
     "rain_mm_h": {
         "device_type": "sensor",
         "object_suffix": "RR",
