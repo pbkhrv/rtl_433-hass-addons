@@ -28,7 +28,6 @@ jobs:
       uses: home-assistant/builder@master
       with:
         args: |
-          --test \
           --all \
           --docker-hub ghcr.io \
           --image pbkhrv/rtl_433-hass-addons-rtl_433-{arch} \
@@ -53,7 +52,6 @@ jobs:
       uses: home-assistant/builder@master
       with:
         args: |
-          --test \
           --all \
           --docker-hub ghcr.io \
           --image pbkhrv/rtl_433-hass-addons-rtl_433_mqtt_autodiscovery-{arch} \
