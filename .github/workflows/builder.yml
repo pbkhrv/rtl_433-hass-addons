@@ -13,6 +13,9 @@ jobs:
   build_rtl_433:
     name: Build rtl_433 addon
     runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.ref }}
+      cancel-in-progress: true
 
     steps:
     - name: Inject slug/short variables
@@ -35,6 +38,9 @@ jobs:
   build_rtl_433_mqtt_autodiscovery:
     name: Build rtl_433_mqtt_autodiscovery addon
     runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.ref }}
+      cancel-in-progress: true
 
     steps:
     - name: Inject slug/short variables
