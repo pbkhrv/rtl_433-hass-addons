@@ -23,6 +23,13 @@ jobs:
     - name: Checkout the repository
       uses: actions/checkout@v2
 
+    - name: Login to Packages Container registry
+      uses: docker/login-action@v1
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Test build
       uses: home-assistant/builder@master
       with:
@@ -43,6 +50,13 @@ jobs:
 
     - name: Checkout the repository
       uses: actions/checkout@v2
+
+    - name: Login to Packages Container registry
+      uses: docker/login-action@v1
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Test build
       uses: home-assistant/builder@master
