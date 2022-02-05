@@ -1,8 +1,8 @@
 diff --git a/examples/rtl_433_mqtt_hass.py b/examples/rtl_433_mqtt_hass.py
-index c2f10bc28..5b3399c4d 100755
+index 706d9437..abfd05ad 100755
 --- a/examples/rtl_433_mqtt_hass.py
 +++ b/examples/rtl_433_mqtt_hass.py
-@@ -111,7 +111,7 @@
+@@ -111,7 +111,7 @@ NAMING_KEYS = [ "type", "model", "subtype", "channel", "id" ]
  
  # Fields that get ignored when publishing to Home Assistant
  # (reduces noise to help spot missing field mappings)
@@ -11,7 +11,7 @@ index c2f10bc28..5b3399c4d 100755
                              "message_type", "exception", "raw_msg" ]
  
  
-@@ -164,7 +164,15 @@
+@@ -164,7 +164,15 @@ mappings = {
              "state_class": "measurement"
          }
      },
@@ -28,10 +28,11 @@ index c2f10bc28..5b3399c4d 100755
      "battery_ok": {
          "device_type": "sensor",
          "object_suffix": "B",
-@@ -514,6 +522,60 @@
+@@ -536,7 +544,60 @@ mappings = {
              "state_class": "total_increasing"
          }
      },
+-
 +    "channel": {
 +        "device_type": "device_automation",
 +        "object_suffix": "CH",
@@ -89,7 +90,7 @@ index c2f10bc28..5b3399c4d 100755
  }
  
  
-@@ -560,17 +622,19 @@ def sanitize(text):
+@@ -583,17 +644,19 @@ def sanitize(text):
  def rtl_433_device_topic(data):
      """Return rtl_433 device topic to subscribe to for a data element"""
  
@@ -116,7 +117,7 @@ index c2f10bc28..5b3399c4d 100755
      """Publish Home Assistant auto discovery data."""
      global discovery_timeouts
  
-@@ -592,10 +656,16 @@ def publish_config(mqttc, topic, model, instance, mapping):
+@@ -615,10 +678,16 @@ def publish_config(mqttc, topic, model, instance, mapping):
      discovery_timeouts[path] = now + args.discovery_interval
  
      config = mapping["config"].copy()
@@ -137,7 +138,7 @@ index c2f10bc28..5b3399c4d 100755
  
      if args.force_update:
          config["force_update"] = "true"
-@@ -614,7 +684,7 @@ def bridge_event_to_hass(mqttc, topicprefix, data):
+@@ -637,7 +706,7 @@ def bridge_event_to_hass(mqttc, topicprefix, data):
          logging.debug("Model is not defined. Not sending event to Home Assistant.")
          return
  
@@ -146,7 +147,7 @@ index c2f10bc28..5b3399c4d 100755
  
      skipped_keys = []
      published_keys = []
-@@ -628,9 +698,9 @@ def bridge_event_to_hass(mqttc, topicprefix, data):
+@@ -651,9 +720,9 @@ def bridge_event_to_hass(mqttc, topicprefix, data):
      # detect known attributes
      for key in data.keys():
          if key in mappings:
