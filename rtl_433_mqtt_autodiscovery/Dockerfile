@@ -5,12 +5,13 @@ ARG rtl433GitRevision=2b49b81aafee4aef6015385ee44dc7e0d9f0073d
 
 # Copy files from root folder
 COPY run.sh \
-     0001-Remove-invalid-device_classes-moisture-safety-and-depth.patch \
+     1665.diff \
      /
 
 RUN apk add patch
 RUN wget https://raw.githubusercontent.com/merbanan/rtl_433/${rtl433GitRevision}/examples/rtl_433_mqtt_hass.py -O rtl_433_mqtt_hass.py
-RUN patch -u rtl_433_mqtt_hass.py 0001-Remove-invalid-device_classes-moisture-safety-and-depth.patch
+# https://github.com/merbanan/rtl_433/pull/1665.diff
+RUN patch -u rtl_433_mqtt_hass.py 1665.diff
 
 
 RUN \
