@@ -1,11 +1,10 @@
 ARG BUILD_FROM=homeassistant/amd64-base-python:3.9-alpine3.13
-FROM ${BUILD_FROM}
+FROM ${BUILD_FROM} as builder
 
 ARG rtl433GitRevision=2b49b81aafee4aef6015385ee44dc7e0d9f0073d
 
 # Copy files from root folder
-COPY run.sh \
-     1665.diff \
+COPY 1665.diff \
      /
 
 RUN apk add patch
@@ -13,6 +12,10 @@ RUN wget https://raw.githubusercontent.com/merbanan/rtl_433/${rtl433GitRevision}
 # https://github.com/merbanan/rtl_433/pull/1665.diff
 RUN patch -u rtl_433_mqtt_hass.py 1665.diff
 
+FROM ${BUILD_FROM}
+
+COPY --from=builder rtl_433_mqtt_hass.py .
+COPY run.sh .
 
 RUN \
     pip install \
