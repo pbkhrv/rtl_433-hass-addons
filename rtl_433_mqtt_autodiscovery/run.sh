@@ -25,10 +25,12 @@ fi
 if bashio::config.true "force_update"; then
   OTHER_ARGS="${OTHER_ARGS} --force_update"
 fi
-if bashio::config.true "quiet"; then
+
+LOG_LEVEL=$(bashio::config "log_level")
+if [[ $LOG_LEVEL == "quiet" ]]; then
   OTHER_ARGS="${OTHER_ARGS} --quiet"
 fi
-if bashio::config.true "debug"; then
+if [[ $LOG_LEVEL == "debug" ]]; then
   OTHER_ARGS="${OTHER_ARGS} --debug"
 fi
 
