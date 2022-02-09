@@ -30,7 +30,7 @@
     "discovery_prefix": "str",
     "discovery_interval": "int",
     "force_update": "bool",
-    "quiet": false,
+    "quiet": "bool",
     "debug": "bool"
   },
   "services": ["mqtt:want"]
