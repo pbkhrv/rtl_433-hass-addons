@@ -17,6 +17,7 @@
     "discovery_prefix": "homeassistant",
     "discovery_interval": 600,
     "force_update": false,
+    "quiet": false,
     "debug": false
   },
   "schema": {
