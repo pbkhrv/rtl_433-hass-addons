@@ -1,5 +1,5 @@
 diff --git a/examples/rtl_433_mqtt_hass.py b/examples/rtl_433_mqtt_hass.py
-index 706d9437..abfd05ad 100755
+index 706d9437..bccf3ebf 100755
 --- a/examples/rtl_433_mqtt_hass.py
 +++ b/examples/rtl_433_mqtt_hass.py
 @@ -111,7 +111,7 @@ NAMING_KEYS = [ "type", "model", "subtype", "channel", "id" ]
@@ -28,11 +28,10 @@ index 706d9437..abfd05ad 100755
      "battery_ok": {
          "device_type": "sensor",
          "object_suffix": "B",
-@@ -536,7 +544,60 @@ mappings = {
-             "state_class": "total_increasing"
+@@ -537,6 +545,61 @@ mappings = {
          }
      },
--
+ 
 +    "channel": {
 +        "device_type": "device_automation",
 +        "object_suffix": "CH",
@@ -86,38 +85,22 @@ index 706d9437..abfd05ad 100755
 +           "type": "button_short_release",
 +           "subtype": "button_1",
 +        }
-+    }
++    },
++
  }
  
  
-@@ -583,17 +644,19 @@ def sanitize(text):
- def rtl_433_device_topic(data):
-     """Return rtl_433 device topic to subscribe to for a data element"""
+@@ -592,8 +655,7 @@ def rtl_433_device_topic(data):
  
--    path_elements = []
-+    #path_elements = []
+     return '/'.join(path_elements)
  
--    for key in NAMING_KEYS:
--        if key in data:
--            element = sanitize(str(data[key]))
--            path_elements.append(element)
-+    #for key in NAMING_KEYS:
-+    #    if key in data:
-+    #        element = sanitize(str(data[key]))
-+    #        path_elements.append(element)
- 
--    return '/'.join(path_elements)
-+    uid = data.get('id')
-+    if uid is None: uid = 0
-+    return 'ID'+str(uid) # '/'.join(path_elements)
- 
- 
+-
 -def publish_config(mqttc, topic, model, instance, mapping):
 +def publish_config(mqttc, topic, model, instance, mapping, value=None):
      """Publish Home Assistant auto discovery data."""
      global discovery_timeouts
  
-@@ -615,10 +678,16 @@ def publish_config(mqttc, topic, model, instance, mapping):
+@@ -615,10 +677,16 @@ def publish_config(mqttc, topic, model, instance, mapping):
      discovery_timeouts[path] = now + args.discovery_interval
  
      config = mapping["config"].copy()
@@ -138,25 +121,3 @@ index 706d9437..abfd05ad 100755
  
      if args.force_update:
          config["force_update"] = "true"
-@@ -637,7 +706,7 @@ def bridge_event_to_hass(mqttc, topicprefix, data):
-         logging.debug("Model is not defined. Not sending event to Home Assistant.")
-         return
- 
--    model = sanitize(data["model"])
-+    model = 'P' + str(data["protocol"])
- 
-     skipped_keys = []
-     published_keys = []
-@@ -651,9 +720,9 @@ def bridge_event_to_hass(mqttc, topicprefix, data):
-     # detect known attributes
-     for key in data.keys():
-         if key in mappings:
--            # topic = "/".join([topicprefix,"devices",model,instance,key])
--            topic = "/".join([topicprefix,"devices",instance,key])
--            if publish_config(mqttc, topic, model, instance, mappings[key]):
-+            # topic = "/".join([topicprefix,model,instance,key])
-+            topic = "/".join([topicprefix,model,instance,key])
-+            if publish_config(mqttc, topic, model, instance, mappings[key], data[key]):
-                 published_keys.append(key)
-         else:
-             if key not in SKIP_KEYS:
