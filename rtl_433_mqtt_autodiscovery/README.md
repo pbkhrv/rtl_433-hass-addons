@@ -85,7 +85,7 @@ To install this Home Assistant add-on you need to add the rtl_433 add-on reposit
 
  4. Scroll down, select the "rtl_433 MQTT Auto Discovery" add-on and install it.
 
- 5. It is only recommended to run the addon when trying to add a new device. Keep Autostart off, start the addon to register new devices, and then shut it down when done. Otherwise, `rtl_433` is likely to pick up many devices at the edge of it's range, or transient devices like tire pressure monitoring sensors (TPMS) adding many undesired devices to Home Assistant.
+ 5. It is only recommended to run the addon when trying to add a new device. Keep "Start on boot" off, start the addon to register new devices, and then shut it down when done. Otherwise, `rtl_433` is likely to pick up many devices at the edge of it's range, or transient devices like tire pressure monitoring sensors (TPMS) adding many undesired devices to Home Assistant.
 
 ## Configuration
 
