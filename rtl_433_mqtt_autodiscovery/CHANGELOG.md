@@ -1,5 +1,9 @@
 ## [UNRELEASED] - YYYY-MM-DD
 
+**READ BEFORE UPDATING**
+
+The addon now uses a prebuilt image instead of being built locally when installed. This significantly speeds up installation times for slower devices, and ensures everyone is using the same code. Unfortunately, Home Assistant can't switch these installation methods automatically. To upgrade, **uninstall and reinstall the addon**. This will lose settings set in the Configuration section including custom-set MQTT hosts and credentials. Save them aside before reinstalling.
+
 - Switched to using the upstream as a source for rtl_433_mqtt_hass.py #50
 - Add a config option for debug (and quiet) logging #26
 - Roll back protocol and path changes in 1665 patch #66
