@@ -4,7 +4,7 @@ name: Create new rtl_433 addon release
 
 on:
   tags:
-    - '.*'
+    - .*
 
 env:
   REGISTRY: ghcr.io
