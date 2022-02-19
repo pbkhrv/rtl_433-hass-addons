@@ -2,7 +2,7 @@
 
 **READ BEFORE UPDATING**
 
-The addon now uses a prebuilt image instead of being built locally when installed. This significantly speeds up installation times for slower devices, and ensures everyone is using the same code. Unfortunately, Home Assistant can't switch these installation methods automatically. To upgrade, **uninstall and reinstall the addon**. This will lose settings set in the Configuration section **but not files in `rtl_433/*.conf.template`. Save them aside before reinstalling.
+The addon now uses a prebuilt image instead of being built locally when installed. This significantly speeds up installation times for slower devices, and ensures everyone is using the same code. Unfortunately, Home Assistant can't switch these installation methods automatically. To upgrade, **uninstall and reinstall the addon**. This will lose settings set in the Configuration section **but not files in `rtl_433/*.conf.template`**. Save them aside before reinstalling.
 
 - Prevent using old cached rtl_433 repository during installation or update #43 #41
 - Update to rtl_433 master as of Feb 4, 2021
