@@ -1,0 +1,123 @@
+diff --git a/examples/rtl_433_mqtt_hass.py b/examples/rtl_433_mqtt_hass.py
+index 706d9437..bccf3ebf 100755
+--- a/examples/rtl_433_mqtt_hass.py
++++ b/examples/rtl_433_mqtt_hass.py
+@@ -111,7 +111,7 @@ NAMING_KEYS = [ "type", "model", "subtype", "channel", "id" ]
+ 
+ # Fields that get ignored when publishing to Home Assistant
+ # (reduces noise to help spot missing field mappings)
+-SKIP_KEYS = NAMING_KEYS + [ "time", "mic", "mod", "freq", "sequence_num",
++SKIP_KEYS = NAMING_KEYS + [ "mic", "mod", "freq", "sequence_num",
+                             "message_type", "exception", "raw_msg" ]
+ 
+ 
+@@ -164,7 +164,15 @@ mappings = {
+             "state_class": "measurement"
+         }
+     },
+-
++    "time": {
++        "device_type": "sensor",
++        "object_suffix": "UTC",
++        "config": {
++            "device_class": "timestamp",
++            "name": "Timestamp",
++            "icon": "mdi:clock-in"
++        }
++    },
+     "battery_ok": {
+         "device_type": "sensor",
+         "object_suffix": "B",
+@@ -537,6 +545,61 @@ mappings = {
+         }
+     },
+ 
++    "channel": {
++        "device_type": "device_automation",
++        "object_suffix": "CH",
++        "config": {
++           "automation_type": "trigger",
++           "type": "button_short_release",
++           "subtype": "button_1",
++        }
++    },
++    "button": {
++        "device_type": "device_automation",
++        "object_suffix": "BTN",
++        "config": {
++           "automation_type": "trigger",
++           "type": "button_short_release",
++           "subtype": "button_1",
++        }
++    },
++    "code": {
++        "device_type": "device_automation",
++        "object_suffix": "CODE",
++        "config": {
++           "automation_type": "trigger",
++           "type": "button_short_release",
++           "subtype": "button_1",
++        }
++    },
++    "unit": {
++        "device_type": "device_automation",
++        "object_suffix": "unit",
++        "config": {
++           "automation_type": "trigger",
++           "type": "button_short_release",
++           "subtype": "button_1",
++        }
++    },
++    "tristate": {
++        "device_type": "device_automation",
++        "object_suffix": "tristate",
++        "config": {
++           "automation_type": "trigger",
++           "type": "button_short_release",
++           "subtype": "button_1",
++        }
++    },
++    "cmd": {
++        "device_type": "device_automation",
++        "object_suffix": "CMD",
++        "config": {
++           "automation_type": "trigger",
++           "type": "button_short_release",
++           "subtype": "button_1",
++        }
++    },
++
+ }
+ 
+ 
+@@ -592,8 +655,7 @@ def rtl_433_device_topic(data):
+ 
+     return '/'.join(path_elements)
+ 
+-
+-def publish_config(mqttc, topic, model, instance, mapping):
++def publish_config(mqttc, topic, model, instance, mapping, value=None):
+     """Publish Home Assistant auto discovery data."""
+     global discovery_timeouts
+ 
+@@ -615,10 +677,16 @@ def publish_config(mqttc, topic, model, instance, mapping):
+     discovery_timeouts[path] = now + args.discovery_interval
+ 
+     config = mapping["config"].copy()
+-    config["name"] = object_name
+-    config["state_topic"] = topic
+-    config["unique_id"] = object_name
+-    config["device"] = { "identifiers": object_id, "name": object_id, "model": model, "manufacturer": "rtl_433" }
++
++    if device_type == 'device_automation':
++        config["topic"] = topic
++        config["platform"] = 'mqtt'
++        config["payload"] = value
++    else:
++        config["state_topic"] = topic
++        config["unique_id"] = object_name
++        config["name"] = object_name
++    config["device"] = { "identifiers": [object_id], "name": object_id, "model": model, "manufacturer": "rtl_433" }
+ 
+     if args.force_update:
+         config["force_update"] = "true"

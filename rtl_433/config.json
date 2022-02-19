@@ -1,6 +1,7 @@
 {
   "name": "rtl_433",
-  "version": "0.1.3",
+  "image": "ghcr.io/pbkhrv/rtl_433-hass-addons-rtl_433-{arch}",
+  "version": "0.2.0",
   "slug": "rtl433",
   "description": "Receive wireless sensor data via an SDR dongle and rtl_433",
   "url": "https://github.com/pbkhrv/rtl_433-hass-addons/tree/main/rtl_433",
