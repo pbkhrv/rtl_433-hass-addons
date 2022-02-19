@@ -48,7 +48,6 @@ jobs:
       if: github.event.pull_request.head.repo.full_name != github.repository
       with:
         args: |
-          --test \
           --${{ matrix.arch }} \
           --docker-hub $REGISTRY \
           --image ${{ github.repository}}-rtl_433-{arch} \
@@ -92,7 +91,6 @@ jobs:
       if: github.event.pull_request.head.repo.full_name != github.repository
       with:
         args: |
-          --test \
           --${{ matrix.arch }} \
           --docker-hub $REGISTRY \
           --image ${{ github.repository}}-rtl_433_mqtt_autodiscovery-{arch} \
