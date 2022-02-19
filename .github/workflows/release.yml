@@ -22,6 +22,9 @@ jobs:
         arch: [armhf, armv7, amd64, i386]
 
     steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v2
+
     - name: Make sure tag doesn't exist
       run: |
         set -e
@@ -32,9 +35,6 @@ jobs:
 
     - name: Inject slug/short variables
       uses: rlespinasse/github-slug-action@v4
- 
-    - name: Checkout the repository
-      uses: actions/checkout@v2
  
     - name: Login to Packages Container registry
       uses: docker/login-action@v1
