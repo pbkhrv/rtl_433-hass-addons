@@ -31,6 +31,7 @@ jobs:
         set -e
         sudo apt-get update
         sudo apt-get install -y jq
+        set -x
         TAG=$(jq '.version' < rtl_433/config.json)
         ! docker manifest inspect ghcr.io/pbkhrv/rtl_433-hass-addons-rtl_433-${{ matrix.arch }}:$TAG > /dev/null
 
@@ -74,6 +75,7 @@ jobs:
         set -e
         sudo apt-get update
         sudo apt-get install -y jq
+        set -x
         TAG=$(jq '.version' < rtl_433_mqtt_autodiscovery/config.json)
         ! docker manifest inspect ghcr.io/pbkhrv/rtl_433-hass-addons-rtl_433-${{ matrix.arch }}:$TAG > /dev/null
 
