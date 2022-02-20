@@ -5,6 +5,7 @@ name: Create new rtl_433 addon release
 on:
   push:
     tags:
+      - '\d\d\d\d\..*'
 
 env:
   REGISTRY: ghcr.io
@@ -19,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        arch: [armhf, armv7, amd64, i386]
+        arch: [armhf, armv7, aarch64, amd64, i386]
 
     steps:
     - name: Checkout the repository
@@ -30,6 +31,7 @@ jobs:
         set -e
         sudo apt-get update
         sudo apt-get install -y jq
+        set -x
         TAG=$(jq '.version' < rtl_433/config.json)
         ! docker manifest inspect ghcr.io/pbkhrv/rtl_433-hass-addons-rtl_433-${{ matrix.arch }}:$TAG > /dev/null
 
@@ -59,7 +61,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        arch: [armhf, armv7, amd64, i386]
+        arch: [armhf, armv7, aarch64, amd64, i386]
 
     steps:
     - name: Inject slug/short variables
@@ -73,6 +75,7 @@ jobs:
         set -e
         sudo apt-get update
         sudo apt-get install -y jq
+        set -x
         TAG=$(jq '.version' < rtl_433_mqtt_autodiscovery/config.json)
         ! docker manifest inspect ghcr.io/pbkhrv/rtl_433-hass-addons-rtl_433-${{ matrix.arch }}:$TAG > /dev/null
 
