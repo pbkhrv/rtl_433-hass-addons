@@ -111,7 +111,7 @@ The following options apply to all broker configurations:
 Run the following in Docker:
 
 ```
-docker run -e MQTT_HOST=mqtt.host.com -e MQTT_USERNAME=username -e MQTT_PASSWORD=password ghcr.io/pbkhrv/rtl_433-hass-addons-rtl_433_mqtt_autodiscovery-amd64
+docker run -e MQTT_HOST=mqtt.example.com -e MQTT_USERNAME=username -e MQTT_PASSWORD=password ghcr.io/pbkhrv/rtl_433-hass-addons-rtl_433_mqtt_autodiscovery-amd64
 ```
 
 Replace `amd64` with your appropriate architecture.
@@ -125,7 +125,7 @@ services:
     container_name: rtl_433_autodiscovery
     image: ghcr.io/pbkhrv/rtl_433-hass-addons-rtl_433_mqtt_autodiscovery-amd64
     environment:
-      - MQTT_HOST=mqtt.host.com
+      - MQTT_HOST=mqtt.example.com
       - MQTT_USERNAME=username
       - MQTT_PASSWORD=password
       # - MQTT_PORT=1883
