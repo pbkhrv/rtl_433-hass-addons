@@ -1,4 +1,6 @@
-## [UNRELEASED] - 2022-02-19
+## [UNRELEASED] - YYYY-MM-DD
+
+## [0.3.1] - 2022-02-19
 
 - Add builds for aarch64
 - **READ BEFORE UPDATING** below still applies
