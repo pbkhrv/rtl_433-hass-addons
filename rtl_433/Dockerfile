@@ -1,4 +1,4 @@
-ARG BUILD_FROM
+ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:3.14
 FROM $BUILD_FROM as builder
 MAINTAINER pbkhrv@pm.me
 
