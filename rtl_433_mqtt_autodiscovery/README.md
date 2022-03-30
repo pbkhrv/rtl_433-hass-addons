@@ -106,9 +106,9 @@ The following options apply to all broker configurations:
 * `discovery_interval`: how often to publish discovery information, in seconds. Default is 600.
 * `force_update`: Use `force_update` flag in discovery configuration. See details [here](https://www.home-assistant.io/integrations/sensor.mqtt/#force_update).
 
-## Stand-alone Docker
+## Stand-alone Autodiscovery in Docker
 
-Run the following in Docker:
+Follow these steps to run just the autodiscovery script in a dedicated container. For this setup, we recommend using the [hertzg/rtl_433_docker](https://github.com/hertzg/rtl_433_docker) images to run `rtl_433` itself.
 
 ```
 docker run -e MQTT_HOST=mqtt.example.com -e MQTT_USERNAME=username -e MQTT_PASSWORD=password ghcr.io/pbkhrv/rtl_433-hass-addons-rtl_433_mqtt_autodiscovery-amd64
