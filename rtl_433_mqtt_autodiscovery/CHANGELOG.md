@@ -1,6 +1,7 @@
 ## [UNRELEASED] - YYYY-MM-DD
 
 - Update to rtl_433 master as of Mar 26, 2022 #82
+- Support running from stand-alone docker #77
 
 ## [0.3.1] - 2022-02-19
 
