@@ -59,7 +59,7 @@ You can use one of the MQTT HA integrations to configure `binary_sensor` or `sen
 
 ## How it works
 
-All the add-on does is run rtl_433_mqtt_hass.py inside the Home Assistant OS supervisor. Quoting the script's description:
+All the add-on does is run rtl_433_mqtt_hass.py inside the Home Assistant OS supervisor or Docker directly. Quoting the script's description:
 
 > Publish Home Assistant MQTT auto discovery topics for rtl_433 devices.
 
@@ -73,7 +73,9 @@ For more information, see [the original script](https://github.com/merbanan/rtl_
 
 This add-on doesn't do anything useful unless you already have rtl_433 running and publishing "events" and "device" data to MQTT. If you would like to set that up on the same machine that's running the Home Assistant OS, the simplest way might be to use the [rtl_433 Home Assistant Add-on](https://github.com/pbkhrv/rtl_433-hass-addons/tree/main/rtl_433).
 
-## Installation
+## Home Assistant Add-on
+
+### Installation
 
 To install this Home Assistant add-on you need to add the rtl_433 add-on repository first:
 
@@ -87,7 +89,7 @@ To install this Home Assistant add-on you need to add the rtl_433 add-on reposit
 
  5. It is only recommended to run the addon when trying to add a new device. Keep "Start on boot" off, enable `mqtt_retain` in the addon configuration, start the addon to register new devices, and then shut it down when done. Otherwise, `rtl_433` is likely to pick up many devices at the edge of it's range, or transient devices like tire pressure monitoring sensors (TPMS) adding many undesired devices to Home Assistant.
 
-## Configuration
+### Configuration
 
 By default, this addon assumes the official Mosquitto addon is installed. In that case, the MQTT connection information is determined automatically. Otherwise, to use an external broker, provide the following configuration options:
 
@@ -103,3 +105,33 @@ The following options apply to all broker configurations:
 * `discovery_prefix`: MQTT topic prefix where Home Assistant is [looking for discovery information](https://www.home-assistant.io/docs/mqtt/discovery/#discovery_prefix). Default is "homeassistant".
 * `discovery_interval`: how often to publish discovery information, in seconds. Default is 600.
 * `force_update`: Use `force_update` flag in discovery configuration. See details [here](https://www.home-assistant.io/integrations/sensor.mqtt/#force_update).
+
+## Stand-alone Autodiscovery in Docker
+
+Follow these steps to run just the autodiscovery script in a dedicated container. For this setup, we recommend using the [hertzg/rtl_433_docker](https://github.com/hertzg/rtl_433_docker) images to run `rtl_433` itself.
+
+```
+docker run -e MQTT_HOST=mqtt.example.com -e MQTT_USERNAME=username -e MQTT_PASSWORD=password ghcr.io/pbkhrv/rtl_433-hass-addons-rtl_433_mqtt_autodiscovery-amd64
+```
+
+Replace `amd64` with your appropriate architecture.
+
+Using docker-compose:
+
+```
+version: '3'
+services:
+  rtl_433_autodiscovery:
+    container_name: rtl_433_autodiscovery
+    image: ghcr.io/pbkhrv/rtl_433-hass-addons-rtl_433_mqtt_autodiscovery-amd64
+    environment:
+      - MQTT_HOST=mqtt.example.com
+      - MQTT_USERNAME=username
+      - MQTT_PASSWORD=password
+      # - MQTT_PORT=1883
+      # - RTL_TOPIC=rtl_433/+/events
+      # - DISCOVERY_PREFIX=homeassistant
+      # - DISCOVERY_INTERVAL=600
+      # - LOG_LEVEL=debug
+      # - OTHER_ARGS=--retain
+```
