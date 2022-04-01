@@ -1,4 +1,4 @@
-ARG BUILD_FROM
+ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:3.14
 FROM $BUILD_FROM as builder
 MAINTAINER pbkhrv@pm.me
 
@@ -13,7 +13,7 @@ RUN apk add --no-cache --virtual .buildDeps \
     git
 
 WORKDIR /build
-ARG rtl433GitRevision=2b49b81aafee4aef6015385ee44dc7e0d9f0073d
+ARG rtl433GitRevision=778b94ca984c9792a5f5d5bee8910de6bd473b26
 RUN git clone https://github.com/merbanan/rtl_433
 WORKDIR ./rtl_433
 
