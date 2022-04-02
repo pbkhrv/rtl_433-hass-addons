@@ -1,3 +1,7 @@
+## [0.2.2] - 2022-04-02
+
+- Update to rtl_433 master as of Mar 26, 2022 #82
+
 ## [0.2.1] - 2022-02-19
 
 - Add builds for aarch64
