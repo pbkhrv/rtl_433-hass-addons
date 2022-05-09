@@ -1,4 +1,6 @@
-## [UNRELEASED] - YYYY-MM-DD
+## [0.3.3] - 2022-05-09
+
+- Update to rtl_433 master as of April 28, 2022
 
 ## [0.3.2] - 2022-04-02
 
