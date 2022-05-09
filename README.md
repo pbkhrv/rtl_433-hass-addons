@@ -17,5 +17,6 @@ This is a collection of Home Assistant add-ons that work with [rtl_433](https://
 * [rtl_433/config.json](rtl_433/config.json) and [rtl_433_mqtt_autodiscovery/config.json](rtl_433_mqtt_autodiscovery/config.json) will contain the version numbers of the previously set addon versions, but will have different code.
 * When `next` is ready to be tagged for a release:
   1. Create a pull request bumping the versions of each `config.json` file if the individual addon has been changed. As well, update the `CHANGELOG.md` in the same pull request.
-  2. When the pull request has been approved and merged into `next`, merge `next` into `main`. Note the new version(s) in the commit message.
-  3. Note we do not tag `main` in git, since each addon has it's own version number.
+  2. When the pull request has been approved and merged into `next`, create a date-based tag such as 2022-12-01. This will build docker containers with the version numbers in `config.json`.
+  3. Merge `next` into `main` to actually promote the release to end users. Note the new version(s) in the commit message.
+    - Note we do not tag `main` in git, since each addon has it's own version number.
