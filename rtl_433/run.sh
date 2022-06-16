@@ -37,7 +37,8 @@ then
     cat > $conf_directory/rtl_433.conf.template <<EOD
 # This is an empty template for configuring rtl_433. mqtt information will be
 # automatically added. Create multiple files ending in '.conf.template' to
-# manage multiple rtl_433 radios, being sure to set the 'device' setting.
+# manage multiple rtl_433 radios, being sure to set the 'device' setting. The
+# device must be set before mqtt output lines.
 # https://github.com/merbanan/rtl_433/blob/master/conf/rtl_433.example.conf
 
 output mqtt://\${host}:\${port},user=\${username},pass=\${password},retain=\${retain}
