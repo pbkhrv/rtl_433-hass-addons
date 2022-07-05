@@ -26,7 +26,6 @@ RUN make -j 4
 WORKDIR /build/root
 WORKDIR /build/rtl_433/build
 RUN make DESTDIR=/build/root/ install
-RUN ls -lah /build/root
 
 FROM $BUILD_FROM
 
