@@ -64,6 +64,11 @@ do
     # we wrap the needed redirections into a temparary file.
     echo "cat <<EOD > $live" > /tmp/rtl_433_heredoc
     cat $template >> /tmp/rtl_433_heredoc
+
+    # Ensure a newline exists in case the template doesn't have one at the end
+    # of its file.
+    echo >> /tmp/rtl_433_heredoc
+
     echo EOD >> /tmp/rtl_433_heredoc
 
     source /tmp/rtl_433_heredoc
