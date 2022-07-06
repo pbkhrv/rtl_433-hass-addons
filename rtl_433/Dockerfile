@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:3.14
+ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:3.16
 FROM $BUILD_FROM as builder
 MAINTAINER pbkhrv@pm.me
 
@@ -26,7 +26,6 @@ RUN make -j 4
 WORKDIR /build/root
 WORKDIR /build/rtl_433/build
 RUN make DESTDIR=/build/root/ install
-RUN ls -lah /build/root
 
 FROM $BUILD_FROM
 
