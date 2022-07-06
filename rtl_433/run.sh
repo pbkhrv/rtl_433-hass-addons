@@ -1,4 +1,4 @@
-#!/usr/bin/env bashio
+#!/usr/bin/with-contenv bashio
 
 conf_directory="/config/rtl_433"
 
@@ -75,7 +75,7 @@ do
 
     echo "Starting rtl_433 with $live..."
     tag=$(basename $live .conf)
-    rtl_433 -c "$live" > >(sed "s/^/[$tag] /") 2> >(>&2 sed "s/^/[$tag] /")&
+    rtl_433 -c "$live" > >(sed -u "s/^/[$tag] /") 2> >(>&2 sed -u "s/^/[$tag] /")&
     rtl_433_pids+=($!)
 done
 

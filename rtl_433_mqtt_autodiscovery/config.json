@@ -8,6 +8,7 @@
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "startup": "application",
   "boot": "auto",
+  "init": false,
   "options": {
     "mqtt_host": "",
     "mqtt_port": 1883,
