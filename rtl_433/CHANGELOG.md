@@ -1,9 +1,14 @@
 ## [UNRELEASED] - YYYY-MM-DD
 
+- [DOCS] Note the device must be set first if supplied
+- Update for S6-Overlay 3.x #97 #98
+- Fix output lag due to sed buffering #85 #95
+- Ensure template has an EOL character when rendering #81 #96
+
 ## [0.2.3] - 2022-05-09
 
 - Update to rtl_433 master as of April 28, 2022.
--
+
 ## [0.2.2] - 2022-04-02
 
 - Update to rtl_433 master as of Mar 26, 2022 #82
