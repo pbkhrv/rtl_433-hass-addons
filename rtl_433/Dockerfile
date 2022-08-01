@@ -9,6 +9,7 @@ RUN apk add --no-cache --virtual .buildDeps \
     build-base \
     libusb-dev \
     librtlsdr-dev \
+    patch \
     cmake \
     git
 
@@ -17,8 +18,15 @@ ARG rtl433GitRevision=9d2e0b7fdc7ea8248102df9cbc479d4c8a715843
 RUN git clone https://github.com/merbanan/rtl_433
 WORKDIR ./rtl_433
 
-
 RUN git checkout ${rtl433GitRevision}
+
+# Copy files from root folder
+COPY 2116.diff \
+     /
+
+# https://github.com/merbanan/rtl_433/pull/2116
+RUN patch -u 2116.diff
+
 WORKDIR ./build
 RUN cmake ..
 RUN make -j 4
