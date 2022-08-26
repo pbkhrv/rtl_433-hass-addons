@@ -1,7 +1,7 @@
 ARG BUILD_FROM=homeassistant/amd64-base-python:3.9-alpine3.16
 FROM ${BUILD_FROM} as builder
 
-ARG rtl433GitRevision=9eec461132ee880c4e1a969026f81be9934682cf
+ARG rtl433GitRevision=963adb78f7a768b995c3027fc32749811d553c5d
 
 # Copy files from root folder
 COPY 1665.diff \
