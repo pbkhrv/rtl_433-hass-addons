@@ -25,23 +25,6 @@ body:
     attributes:
       value: |
         ## Environment
-  - type: input
-    id: version
-    validations:
-      required: true
-    attributes:
-      label: What version of Home Assistant Core has the issue?
-      placeholder: core-
-      description: >
-        Can be found in: [Settings -> About](https://my.home-assistant.io/redirect/info/).
-
-        [![Open your Home Assistant instance and show your Home Assistant version information.](https://my.home-assistant.io/badges/info.svg)](https://my.home-assistant.io/redirect/info/)
-  - type: input
-    attributes:
-      label: What was the last working version of Home Assistant Core?
-      placeholder: core-
-      description: >
-        If known, otherwise leave blank.
   - type: dropdown
     validations:
       required: true
@@ -72,7 +55,8 @@ body:
       label: Addon log messages
       placeholder: "Copy and paste the addon log here"
       description: >-
-        Copy the addon logs from the Home Assistant addon and paste them here. If the error occurs during startup, it may have rotated off, in which case restart the addon first to generate new logs.
+        rtl_433 logs can be found in: [Settings -> Add-ons -> rtl_433](https://my.home-assistant.io/redirect/supervisor_addon/?addon=rtl_433).
+        rtl_433_mqtt_autodiscovery logs can be found in: [Settings -> Add-ons -> rtl_433](https://my.home-assistant.io/redirect/supervisor_addon/?addon=rtl_433_mqtt_autodiscovery).
       render: txt
   - type: textarea
     attributes:
