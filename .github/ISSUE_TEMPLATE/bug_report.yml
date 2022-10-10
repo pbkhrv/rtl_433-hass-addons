@@ -1,5 +1,5 @@
 name: Report an issue with rtl_433 Home Assistant add-ons
-description: Report an issue with the Home Assistant add-on itself
+description: Report an issue with the Home Assistant add-on itself.
 body:
   - type: markdown
     attributes:
