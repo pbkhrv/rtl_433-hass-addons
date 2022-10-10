@@ -1,0 +1,81 @@
+name: Report an issue with rtl_433 Home Assistant add-ons
+description: Report an issue with the Home Assistant add-on itself
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue form is for reporting bugs only!
+
+        Before reporting a bug, please check:
+
+        1. Add `output kv` to your `rtl433` configuration file and confirm messages are being captured.
+        2. Check that messages are being sent to your MQTT broker using a tool such as [MQTT Explorer](https://mqtt-explorer.com).
+
+  - type: textarea
+    validations:
+      required: true
+    attributes:
+      label: The problem
+      description: >-
+        Describe the issue you are experiencing here, to communicate to the
+        maintainers. Tell us what you were trying to do and what happened.
+
+        Provide a clear and concise description of what the problem is.
+  - type: markdown
+    attributes:
+      value: |
+        ## Environment
+  - type: input
+    id: version
+    validations:
+      required: true
+    attributes:
+      label: What version of Home Assistant Core has the issue?
+      placeholder: core-
+      description: >
+        Can be found in: [Settings -> About](https://my.home-assistant.io/redirect/info/).
+
+        [![Open your Home Assistant instance and show your Home Assistant version information.](https://my.home-assistant.io/badges/info.svg)](https://my.home-assistant.io/redirect/info/)
+  - type: input
+    attributes:
+      label: What was the last working version of Home Assistant Core?
+      placeholder: core-
+      description: >
+        If known, otherwise leave blank.
+  - type: dropdown
+    validations:
+      required: true
+    attributes:
+      label: What addon are you reporting the bug for?
+      description: >
+        Are you experiencing a bug with rtl_433 or rtl_433_mqtt_autodiscovery?
+      options:
+        - rtl_44
+        - rtl_433_mqtt_autodiscovery
+  - type: dropdown
+    validations:
+      required: true
+    attributes:
+      label: What type of MQTT Broker are you using?
+      description: >
+        Are you using the Home Assistant Mosquitto addon or something else?
+      options:
+        - Home Assistant Mosquitto MQTT Broker
+        - Other (details in the bug description)
+
+  - type: markdown
+    attributes:
+      value: |
+        # Details
+  - type: textarea
+    attributes:
+      label: Addon log messages
+      placeholder: "Copy and paste the addon log here"
+      description: >-
+        Copy the addon logs from the Home Assistant addon and paste them here. If the error occurs during startup, it may have rotated off, in which case restart the addon first to generate new logs.
+      render: txt
+  - type: textarea
+    attributes:
+      label: Additional information
+      description: >
+        If you have any additional information for us, use the field below.
