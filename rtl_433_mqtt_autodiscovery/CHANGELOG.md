@@ -1,6 +1,7 @@
 ## [UNRELEASED] - YYYY-MM-DD
 
 - Update for S6-Overlay 3.x #97 #98
+- Update to rtl_433 master from September 24 2022 / e066b669f7574c37f943f251ec8023b00cff1df6 #114
 
 ## [0.3.3] - 2022-05-09
 
