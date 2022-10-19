@@ -30,7 +30,10 @@ protocol -203
 - Update for S6-Overlay 3.x #97 #98
 - Fix output lag due to sed buffering #85 #95
 - Ensure template has an EOL character when rendering #81 #96
+- Apply Reject short messages for Acurite-Rain899 #2105 #2116 #104
+- Update minimum config readme #108 #94
 - Disable TPMS sensors by default #110 #113
+- Update to rtl_433 master from September 24 2022 / e066b669f7574c37f943f251ec8023b00cff1df6 #114
 
 ## [0.2.3] - 2022-05-09
 
