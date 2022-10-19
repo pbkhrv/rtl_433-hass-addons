@@ -37,7 +37,7 @@ body:
         - rtl_433_mqtt_autodiscover
   - type: input
     attributes:
-      label: Addon version, such as `0.2.3`
+      label: Addon version, such as 0.2.3:
     validations:
       required: true
   - type: dropdown
