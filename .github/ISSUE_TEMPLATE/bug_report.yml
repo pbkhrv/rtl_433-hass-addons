@@ -33,7 +33,7 @@ body:
       description: >
         Are you experiencing a bug with rtl_433 or rtl_433_mqtt_autodiscovery?
       options:
-        - rtl_44
+        - rtl_443
         - rtl_433_mqtt_autodiscovery
   - type: dropdown
     validations:
