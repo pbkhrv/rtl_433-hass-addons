@@ -1,4 +1,4 @@
-## [UNRELEASED] - YYYY-MM-DD
+## [0.3.0] - 2022-10-19
 
 ### Looking to disable TPMS sensors?
 
