@@ -30,6 +30,7 @@ protocol -203
 - Update for S6-Overlay 3.x #97 #98
 - Fix output lag due to sed buffering #85 #95
 - Ensure template has an EOL character when rendering #81 #96
+- Disable TPMS sensors by default #110 #113
 
 ## [0.2.3] - 2022-05-09
 
