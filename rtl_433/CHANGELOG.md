@@ -1,11 +1,38 @@
 ## [UNRELEASED] - YYYY-MM-DD
 
+### Looking to disable TPMS sensors?
+
+By default, new installations will now disable TPMS sensors. To disable them in
+an existing configuration, add the following lines to `rtl_433/<filename>.conf.template`:
+
+```
+protocol -59
+protocol -60
+protocol -82
+protocol -88
+protocol -89
+protocol -90
+protocol -95
+protocol -110
+protocol -123
+protocol -140
+protocol -156
+protocol -168
+protocol -180
+protocol -186
+protocol -201
+protocol -203
+```
+
+### Other Changes
+
 - [DOCS] Note the device must be set first if supplied
 - Update for S6-Overlay 3.x #97 #98
 - Fix output lag due to sed buffering #85 #95
 - Ensure template has an EOL character when rendering #81 #96
 - Apply Reject short messages for Acurite-Rain899 #2105 #2116 #104
 - Update minimum config readme #108 #94
+- Disable TPMS sensors by default #110 #113
 - Update to rtl_433 master from September 24 2022 / e066b669f7574c37f943f251ec8023b00cff1df6 #114
 
 ## [0.2.3] - 2022-05-09
