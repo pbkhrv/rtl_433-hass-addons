@@ -34,7 +34,10 @@ body:
         Are you experiencing a bug with rtl_433 or rtl_433_mqtt_autodiscovery?
       options:
         - rtl_443
-        - rtl_433_mqtt_autodiscovery
+        - rtl_433_mqtt_autodiscover
+  - type: input
+    label: Addon version, such as `0.2.3`
+    required: true
   - type: dropdown
     validations:
       required: true
