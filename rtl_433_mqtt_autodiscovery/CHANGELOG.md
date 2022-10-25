@@ -2,6 +2,7 @@
 
 * Upgrade rtl_433 to the latest master #117 #119
 * Update patch for "Update mqtt hass to include triggers #2102"
+  * **Breaking Change:** This removes device automation support for **code, unit, and tristate** fields as the upstream maintainers indicated there is no good way to know how these fields should be configured. Existing configurations set to retain will be kept. To configure these fields in the future, manually publish a configuration topic that matches your sensor.
   * `time` and `battery_ok` sensors are now set as diagnostic sensors in Home Assistant.
   * `time` sensors are disabled by default.
   * `channel` and `button` sensors trigger button device automations.
