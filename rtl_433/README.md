@@ -68,11 +68,10 @@ You might also want to narrow down the list of protocols that rtl_433 should try
 protocol    40
 ```
 
-Last but not least, if you decide to use the MQTT auto discovery script or add-on, its documentation recommends converting units in all of the data coming out of rtl_433 into SI, and using the "newmodel" meta data format to ensure the sensor data gets into HA as accurately as possible:
+Last but not least, if you decide to use the MQTT auto discovery script or add-on, its documentation recommends converting units in all of the data coming out of rtl_433 into SI:
 
 ```
 convert     si
-report_meta newmodel
 ```
 
 Assuming you have only one USB dongle attached and rtl_433 is able to automatically find it, we arrive at a minimal rtl_433 config file that looks like this:
@@ -84,7 +83,6 @@ frequency   433.92M
 protocol    40
 
 convert     si
-report_meta newmodel
 ```
 
 Please check [the official rtl_433 documentation](https://triq.org/rtl_433) and [config file examples](https://github.com/merbanan/rtl_433/tree/master/conf) for more information.
