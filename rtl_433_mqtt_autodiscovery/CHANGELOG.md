@@ -1,6 +1,11 @@
 ## [UNRELEASED] - YYYY-MM-DD
 
-* Upgrade rtl 433 to the latest master #117 #119
+* Upgrade rtl_433 to the latest master #117 #119
+* Update patch for "Update mqtt hass to include triggers #2102"
+  * `time` and `battery_ok` sensors are now set as diagnostic sensors in Home Assistant.
+  * `time` sensors are disabled by default.
+  * `channel` and `button` sensors trigger button device automations.
+  * Honeywell Doorbells now support triggering knocks (1 push) and secret knocks (3 pushes) as device automations.
 
 ## [0.4.0] - 2022-10-19
 
