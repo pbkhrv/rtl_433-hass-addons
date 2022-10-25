@@ -13,7 +13,7 @@ RUN apk add --no-cache --virtual .buildDeps \
     git
 
 WORKDIR /build
-ARG rtl433GitRevision=e066b669f7574c37f943f251ec8023b00cff1df6
+ARG rtl433GitRevision=5f76eae6f6bf9c696b859296301bbbe234de77fe
 RUN git clone https://github.com/merbanan/rtl_433
 WORKDIR ./rtl_433
 
