@@ -4,6 +4,8 @@ name: Create new rtl_433 addon release
 
 on:
   push:
+    branches:
+      - next
     tags:
       - '2*'
 

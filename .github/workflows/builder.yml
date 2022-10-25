@@ -3,7 +3,6 @@ name: Build rtl_433 images
 on:
   push:
     branches:
-      - next
       - main
   pull_request:
 
