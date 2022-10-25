@@ -1,4 +1,4 @@
-## [UNRELEASED] - YYYY-MM-DD
+## [0.3.1] - 2022-10-25
 
 * Upgrade rtl_433 to the latest master #117 #119
 
