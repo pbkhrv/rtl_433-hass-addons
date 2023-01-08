@@ -36,11 +36,10 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Set the token for docker ADD
-      steps:
-        run: |
-          echo "GITHUB_AUTH=${{ secrets.GITHUB_TOKEN }}:x-oauth-basic@" >> $GITHUB_ENV
-        shell:
-          bash
+      run: |
+        echo "GITHUB_AUTH=${{ secrets.GITHUB_TOKEN }}:x-oauth-basic@" >> $GITHUB_ENV
+      shell:
+        bash
 
     - name: Build rtl_433 image
       uses: home-assistant/builder@master
@@ -89,11 +88,10 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Set the token for docker ADD
-      steps:
-        run: |
-          echo "GITHUB_AUTH=${{ secrets.GITHUB_TOKEN }}:x-oauth-basic@" >> $GITHUB_ENV
-        shell:
-          bash
+      run: |
+        echo "GITHUB_AUTH=${{ secrets.GITHUB_TOKEN }}:x-oauth-basic@" >> $GITHUB_ENV
+      shell:
+        bash
 
     - name: Build rtl_433_mqtt_autodiscovery image
       uses: home-assistant/builder@master
