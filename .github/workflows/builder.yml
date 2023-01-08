@@ -8,7 +8,6 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  GITHUB_AUTH: ${{ env.GITHUB_TOKEN }}:x-oauth-basic@
 
 concurrency:
   group: ${{ github.ref }}
@@ -35,6 +34,13 @@ jobs:
         registry: ${{ env.REGISTRY }}
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Set the token for docker ADD
+      steps:
+        run: |
+          echo "GITHUB_AUTH=${{ secrets.GITHUB_TOKEN }}:x-oauth-basic@" >> $GITHUB_ENV
+        shell:
+          bash
 
     - name: Build rtl_433 image
       uses: home-assistant/builder@master
@@ -81,6 +87,13 @@ jobs:
         registry: ${{ env.REGISTRY }}
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Set the token for docker ADD
+      steps:
+        run: |
+          echo "GITHUB_AUTH=${{ secrets.GITHUB_TOKEN }}:x-oauth-basic@" >> $GITHUB_ENV
+        shell:
+          bash
 
     - name: Build rtl_433_mqtt_autodiscovery image
       uses: home-assistant/builder@master
