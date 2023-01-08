@@ -14,10 +14,12 @@
   "usb": true,
   "udev": true,
   "options": {
+    "master": false,
     "rtl_433_conf_file": "",
     "retain": true
   },
   "schema": {
+    "master": "bool",
     "rtl_433_conf_file": "str?",
     "retain": "bool"
   }

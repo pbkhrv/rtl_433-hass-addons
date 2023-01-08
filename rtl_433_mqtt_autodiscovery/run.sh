@@ -52,4 +52,11 @@ else
 fi
 
 echo "Starting rtl_433_mqtt_hass.py..."
-python3 -u /rtl_433_mqtt_hass.py -H $MQTT_HOST -p $MQTT_PORT -R "$RTL_TOPIC" -D "$DISCOVERY_PREFIX" -i $DISCOVERY_INTERVAL $OTHER_ARGS
+SCRIPT=/rtl_433_mqtt_hass.py
+master=$(bashio::config "master")
+if [ "$master" == "true" ]
+then
+  SCRIPT=/rtl_433_mqtt_hass_master.py
+fi
+
+python3 -u $SCRIPT -H $MQTT_HOST -p $MQTT_PORT -R "$RTL_TOPIC" -D "$DISCOVERY_PREFIX" -i $DISCOVERY_INTERVAL $OTHER_ARGS

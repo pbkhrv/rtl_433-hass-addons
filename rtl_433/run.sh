@@ -90,6 +90,13 @@ fi
 rm -f $conf_directory/*.conf
 
 rtl_433_pids=()
+executable=/usr/local/bin/rtl_433
+master=$(bashio::config "master")
+if [ "$master" == "true" ]
+then
+  executable=/opt/rtl_433/bin/rtl_433
+fi
+
 for template in $conf_directory/*.conf.template
 do
     # Remove '.template' from the file name.

@@ -10,6 +10,7 @@
   "boot": "auto",
   "init": false,
   "options": {
+    "master": false,
     "mqtt_host": "",
     "mqtt_port": 1883,
     "mqtt_user": "",
@@ -22,6 +23,7 @@
     "log_level": "default"
   },
   "schema": {
+    "master": "bool",
     "mqtt_host": "str?",
     "mqtt_port": "int?",
     "mqtt_user": "str?",
