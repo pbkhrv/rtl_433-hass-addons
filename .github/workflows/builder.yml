@@ -8,6 +8,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
+  GITHUB_AUTH: ${{ env.GITHUB_TOKEN }}:x-oauth-basic@
 
 concurrency:
   group: ${{ github.ref }}

@@ -15,7 +15,7 @@ RUN apk add --no-cache --virtual .buildDeps \
 WORKDIR /build
 
 # Ensure we invalidate the Docker cache on updates: https://stackoverflow.com/a/39278224/7982687
-ADD https://api.github.com/repos/merbanan/rtl_433/git/refs/heads/master version.json
+ADD https://${GITHUB_AUTH}api.github.com/repos/merbanan/rtl_433/git/refs/heads/master version.json
 
 RUN git clone https://github.com/merbanan/rtl_433
 WORKDIR ./rtl_433

@@ -13,7 +13,7 @@ RUN wget https://raw.githubusercontent.com/merbanan/rtl_433/${rtl433GitRevision}
 RUN patch -u rtl_433_mqtt_hass.py 2102.diff
 
 # Ensure we invalidate the Docker cache on updates: https://stackoverflow.com/a/39278224/7982687
-ADD https://api.github.com/repos/merbanan/rtl_433/git/refs/heads/master version.json
+ADD https://${GITHUB_AUTH}api.github.com/repos/merbanan/rtl_433/git/refs/heads/master version.json
 RUN wget https://raw.githubusercontent.com/merbanan/rtl_433/master/examples/rtl_433_mqtt_hass.py -O rtl_433_mqtt_hass_master.py
 
 FROM ${BUILD_FROM}
