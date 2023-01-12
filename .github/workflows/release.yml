@@ -46,7 +46,12 @@ jobs:
         registry: ${{ env.REGISTRY }}
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
- 
+
+    - name: Check to see if master has changed upstream
+      run: ./check_release.sh
+      shell:
+        bash
+
     - name: Build rtl_433 image
       uses: home-assistant/builder@master
       if: github.event.pull_request.head.repo.full_name != github.repository
@@ -87,6 +92,11 @@ jobs:
         registry: ${{ env.REGISTRY }}
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Check to see if master has changed upstream
+      run: ./check_release.sh
+      shell:
+        bash
 
     - name: Build rtl_433_mqtt_autodiscovery image
       uses: home-assistant/builder@master

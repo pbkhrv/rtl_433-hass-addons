@@ -35,9 +35,8 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Set the token for docker ADD
-      run: |
-        echo "GITHUB_AUTH=${{ secrets.GITHUB_TOKEN }}:x-oauth-basic@" >> $GITHUB_ENV
+    - name: Check to see if master has changed upstream
+      run: ./check_release.sh
       shell:
         bash
 
@@ -87,9 +86,8 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Set the token for docker ADD
-      run: |
-        echo "GITHUB_AUTH=${{ secrets.GITHUB_TOKEN }}:x-oauth-basic@" >> $GITHUB_ENV
+    - name: Check to see if master has changed upstream
+      run: ./check_release.sh
       shell:
         bash
 
