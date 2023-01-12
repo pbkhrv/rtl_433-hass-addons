@@ -40,12 +40,6 @@ jobs:
       shell:
         bash
 
-    - name: Pull existing images for possibly cached layers
-      run: |
-        docker pull ghcr.io/${{ github.repository }}-rtl_433-${{matrix.arch}}:next
-        docker pull ghcr.io/${{ github.repository }}-rtl_433-${{matrix.arch}}:$GITHUB_REF_SLUG || true
-      shell: bash
-
     - name: Build rtl_433 image
       uses: home-assistant/builder@master
       if: github.event.pull_request.head.repo.full_name != github.repository
@@ -98,12 +92,6 @@ jobs:
       run: ./check_release.sh
       shell:
         bash
-
-    - name: Pull existing images for possibly cached layers
-      run: |
-        docker pull ghcr.io/${{ github.repository }}-rtl_433_mqtt_autodiscovery-${{matrix.arch}}:next
-        docker pull ghcr.io/${{ github.repository }}-rtl_433_mqtt_autodiscovery-${{matrix.arch}}:$GITHUB_REF_SLUG || true
-      shell: bash
 
     - name: Build rtl_433_mqtt_autodiscovery image
       uses: home-assistant/builder@master
