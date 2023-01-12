@@ -55,6 +55,7 @@ jobs:
           --${{ matrix.arch }} \
           --docker-hub $REGISTRY \
           --image ${{ github.repository}}-rtl_433-{arch} \
+          --self-cache \
           --version $GITHUB_REF_SLUG \
           --no-latest \
           --target rtl_433
@@ -112,6 +113,7 @@ jobs:
           --${{ matrix.arch }} \
           --docker-hub $REGISTRY \
           --image ${{ github.repository}}-rtl_433_mqtt_autodiscovery-{arch} \
+          --self-cache \
           --version $GITHUB_REF_SLUG \
           --no-latest \
           --target rtl_433_mqtt_autodiscovery
