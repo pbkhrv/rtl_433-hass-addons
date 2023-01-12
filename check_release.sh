@@ -8,3 +8,4 @@ fi
 
 curl -o rtl_433/version.json https://${GITHUB_AUTH}api.github.com/repos/merbanan/rtl_433/git/refs/heads/master
 cp rtl_433/version.json rtl_433_mqtt_autodiscovery/version.json
+cat rtl_433/version.json
