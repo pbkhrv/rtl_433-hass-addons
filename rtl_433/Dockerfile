@@ -14,6 +14,8 @@ RUN apk add --no-cache --virtual .buildDeps \
 
 WORKDIR /build
 
+COPY version.json .
+
 RUN git clone https://github.com/merbanan/rtl_433
 WORKDIR ./rtl_433
 
