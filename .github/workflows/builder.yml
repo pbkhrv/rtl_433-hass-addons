@@ -55,7 +55,7 @@ jobs:
           --target rtl_433
 
     - name: Build and push rtl_433 image
-      uses: home-assistant/builder@master
+      uses: deviantintegral/builder@master
       if: github.event.pull_request.head.repo.full_name == github.repository
       with:
         args: |
@@ -108,7 +108,7 @@ jobs:
           --target rtl_433_mqtt_autodiscovery
 
     - name: Build and push rtl_433_mqtt_autodiscovery image
-      uses: home-assistant/builder@master
+      uses: deviantintegral/builder@master
       if: github.event.pull_request.head.repo.full_name == github.repository
       with:
         args: |
