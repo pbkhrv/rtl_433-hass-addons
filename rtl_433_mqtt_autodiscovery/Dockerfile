@@ -3,14 +3,7 @@ FROM ${BUILD_FROM} as builder
 
 ARG rtl433GitRevision=22.11
 
-# Copy files from root folder
-COPY 2102.diff \
-     /
-
-RUN apk add patch
 RUN wget https://raw.githubusercontent.com/merbanan/rtl_433/${rtl433GitRevision}/examples/rtl_433_mqtt_hass.py -O rtl_433_mqtt_hass.py
-# https://github.com/merbanan/rtl_433/pull/2102
-RUN patch -u rtl_433_mqtt_hass.py 2102.diff
 
 COPY version.json .
 
