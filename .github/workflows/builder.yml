@@ -42,7 +42,7 @@ jobs:
           cp -nv -R rtl_433/* ${{ matrix.addon }}/
         fi
         if [ "${{ matrix.addon }}" == "rtl_433_mqtt_autodiscovery-next" ]; then
-          cp -nv -R rtl_433_mqtt_autodiscovery-next/* ${{ matrix.addon }}/
+          cp -nv -R rtl_433_mqtt_autodiscovery/* ${{ matrix.addon }}/
         fi
 
     - name: Build ${{ matrix.addon }} ${{ matrix.arch }} image
