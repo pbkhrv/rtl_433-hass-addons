@@ -5,8 +5,6 @@ ARG rtl433GitRevision=22.11
 
 RUN wget https://raw.githubusercontent.com/merbanan/rtl_433/${rtl433GitRevision}/examples/rtl_433_mqtt_hass.py -O rtl_433_mqtt_hass.py
 
-COPY version.json .
-
 RUN wget https://raw.githubusercontent.com/merbanan/rtl_433/master/examples/rtl_433_mqtt_hass.py -O rtl_433_mqtt_hass_master.py
 
 FROM ${BUILD_FROM}
