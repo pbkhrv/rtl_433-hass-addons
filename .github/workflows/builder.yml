@@ -66,7 +66,7 @@ jobs:
         args: |
           --${{ matrix.arch }} \
           --docker-hub $REGISTRY \
-          --image ${{ github.repository}}-rtl_433-{arch} \
+          --image ${{ github.repository}}-${{ matrix.addon }}-{arch} \
           --self-cache \
           --version $GITHUB_REF_SLUG \
           --no-latest \
