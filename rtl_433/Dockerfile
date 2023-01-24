@@ -21,7 +21,7 @@ WORKDIR ./rtl_433
 
 # Build a specific commit or tag.
 FROM builder as build_hash
-ARG rtl433GitRevision=5f76eae6f6bf9c696b859296301bbbe234de77fe
+ARG rtl433GitRevision=22.11
 RUN git checkout ${rtl433GitRevision}
 WORKDIR ./build
 RUN cmake ..
