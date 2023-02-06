@@ -33,16 +33,17 @@ jobs:
 
     steps:
     - name: Checkout the repository
-      if: ${{ github.event_name != 'schedule' }}
+      if: github.event_name != 'schedule'
       uses: actions/checkout@v2
 
     - name: Checkout the next branch
-      if: ${{ github.event_name == 'schedule' }}
+      if: github.event_name == 'schedule'
       uses: actions/checkout@v2
       with:
         ref: next
 
     - name: Make sure tag doesn't exist
+      if: github.event_name != 'schedule'
       run: |
         set -e
         sudo apt-get update
@@ -72,11 +73,23 @@ jobs:
 
     - name: Build ${{ matrix.addon }} ${{ matrix.arch }} image
       uses: home-assistant/builder@master
-      if: github.event.pull_request.head.repo.full_name != github.repository
+      if: github.event.pull_request.head.repo.full_name != github.repository && github.event_name != 'schedule'
       with:
         args: |
           --${{ matrix.arch }} \
           --docker-hub $REGISTRY \
           --image ${{ github.repository}}-${{ matrix.addon }}-{arch} \
           --no-latest \
+          --target ${{ matrix.addon }}
+
+    - name: Build nightly ${{ matrix.addon }} ${{ matrix.arch }} image
+      uses: home-assistant/builder@master
+      if: github.event.pull_request.head.repo.full_name != github.repository && github.event_name == 'schedule'
+      with:
+        args: |
+          --${{ matrix.arch }} \
+          --docker-hub $REGISTRY \
+          --image ${{ github.repository}}-${{ matrix.addon }}-{arch} \
+          --no-latest \
+          --version next \
           --target ${{ matrix.addon }}
