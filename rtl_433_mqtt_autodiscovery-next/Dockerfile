@@ -1,1 +1,1 @@
-rtl_433_mqtt_autodiscovery/Dockerfile
+../rtl_433_mqtt_autodiscovery/Dockerfile

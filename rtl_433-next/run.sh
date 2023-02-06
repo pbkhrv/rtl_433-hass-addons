@@ -1,1 +1,1 @@
-rtl_433/run.sh
+../rtl_433/run.sh

@@ -1,1 +1,1 @@
-rtl_433_mqtt_autodiscovery/run.sh
+../rtl_433_mqtt_autodiscovery/run.sh
