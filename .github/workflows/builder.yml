@@ -36,6 +36,15 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: Copy files for next if needed
+      run: |
+        if [ "${{ matrix.addon }}" == "rtl_433-next" ]; then
+          cp -nv -R rtl_433/* ${{ matrix.addon }}/
+        fi
+        if [ "${{ matrix.addon }}" == "rtl_433_mqtt_autodiscovery-next" ]; then
+          cp -nv -R rtl_433_mqtt_autodiscovery/* ${{ matrix.addon }}/
+        fi
+
     - name: Build ${{ matrix.addon }} ${{ matrix.arch }} image
       uses: home-assistant/builder@master
       if: github.event.pull_request.head.repo.full_name != github.repository
