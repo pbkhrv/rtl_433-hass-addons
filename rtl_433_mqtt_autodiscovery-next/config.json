@@ -1,5 +1,5 @@
 {
-  "name": "rtl_433 MQTT Auto Discovery",
+  "name": "rtl_433 MQTT Auto Discovery (next)",
   "image": "ghcr.io/pbkhrv/rtl_433-hass-addons-rtl_433_mqtt_autodiscovery-{arch}",
   "version": "next",
   "slug": "rtl433mqttautodiscovery",
