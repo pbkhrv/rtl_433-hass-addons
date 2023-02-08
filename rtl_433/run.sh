@@ -44,6 +44,10 @@ then
 output mqtt://\${host}:\${port},user=\${username},pass=\${password},retain=\${retain}
 report_meta time:iso:usec:tz
 
+# To keep the same topics when switching between the normal and edge versions,
+# use this output line instead.
+# output mqtt://\${host}:\${port},user=\${username},pass=\${password},retain=\${retain},devices=rtl_433/9b13b3f4-rtl433/devices[/type][/model][/subtype][/channel][/id],events=rtl_433/9b13b3f4-rtl433/events,states=rtl_433/9b13b3f4-rtl433/states
+
 # Uncomment the following line to also enable the default "table" output to the
 # addon logs.
 # output kv
