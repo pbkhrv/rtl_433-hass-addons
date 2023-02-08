@@ -42,6 +42,7 @@ then
 # https://github.com/merbanan/rtl_433/blob/master/conf/rtl_433.example.conf
 
 output mqtt://\${host}:\${port},user=\${username},pass=\${password},retain=\${retain}
+report_meta time:iso:usec:tz
 
 # To keep the same topics when switching between the normal and edge versions,
 # use this output line instead.
