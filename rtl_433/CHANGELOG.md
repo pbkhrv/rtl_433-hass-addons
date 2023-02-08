@@ -1,3 +1,10 @@
+## [0.4.0] - 2023-02-08
+
+* Update rtl_433 to the 22.11 release.
+* Adds a new "next" version of the addon that tracks our next branch and rtl_433 master.
+  * The addon is built once per day. To update, the "next" addon must be uninstalled and reinstalled.
+  * The output line in each configuration file likely needs to be updated to preserve existing topic layouts.
+
 ## [0.3.1] - 2022-10-25
 
 * Upgrade rtl_433 to the latest master #117 #119

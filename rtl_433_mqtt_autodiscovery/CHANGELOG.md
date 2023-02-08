@@ -1,3 +1,7 @@
+## [0.6.0] - 2023-02-08
+
+* Update rtl_433 to the 22.11 release.
+
 ## [0.5.0] - 2022-10-25
 
 * Upgrade rtl_433 to the latest master #117 #119
