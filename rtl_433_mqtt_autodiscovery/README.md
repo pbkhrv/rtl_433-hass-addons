@@ -114,7 +114,7 @@ Follow these steps to run just the autodiscovery script in a dedicated container
 docker run -e MQTT_HOST=mqtt.example.com -e MQTT_USERNAME=username -e MQTT_PASSWORD=password ghcr.io/pbkhrv/rtl_433-hass-addons-rtl_433_mqtt_autodiscovery-amd64
 ```
 
-Replace `amd64` with your appropriate architecture. For Raspberry Pi, this is `armhf`.
+Replace `amd64` with your appropriate architecture. For Raspberry Pi, this is `armhf`, `armv7`, or `aarch64` depending on your Pi version and operating system. If unsure, running `arch` at the command line can help identify the architecture.
 
 Using docker-compose:
 
