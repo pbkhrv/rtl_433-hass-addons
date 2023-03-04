@@ -123,7 +123,7 @@ version: '3'
 services:
   rtl_433_autodiscovery:
     container_name: rtl_433_autodiscovery
-    image: ghcr.io/pbkhrv/rtl_433-hass-addons-rtl_433_mqtt_autodiscovery-amd64 # On Raspberry Pi use: rtl_433-hass-addons-rtl_433_mqtt_autodiscovery-armhf
+    image: ghcr.io/pbkhrv/rtl_433-hass-addons-rtl_433_mqtt_autodiscovery-amd64 # On Raspberry Pi replace `amd64` with the appropriate architecture.
     environment:
       - MQTT_HOST=mqtt.example.com
       - MQTT_USERNAME=username
