@@ -51,6 +51,7 @@ else
   fi
 fi
 
+# Set a default port for when the container is being run directly.
 if [ ! -z ${MQTT_PORT+x} ]; then
   MQTT_PORT="1883"
 fi
