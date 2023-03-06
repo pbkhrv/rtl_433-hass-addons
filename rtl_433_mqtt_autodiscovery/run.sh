@@ -51,5 +51,10 @@ else
   fi
 fi
 
+# Set a default port for when the container is being run directly.
+if [ ! -z ${MQTT_PORT+x} ]; then
+  MQTT_PORT="1883"
+fi
+
 echo "Starting rtl_433_mqtt_hass.py..."
 python3 -u /rtl_433_mqtt_hass.py -H $MQTT_HOST -p $MQTT_PORT -R "$RTL_TOPIC" -D "$DISCOVERY_PREFIX" -i $DISCOVERY_INTERVAL $OTHER_ARGS
