@@ -1,3 +1,8 @@
+## [unreleased] - YYYY-MM-DD
+
+* `device_topic_suffix` support added by @unverbraucht #144
+  * When releasing, remember to copy config.json from the next addon if a stable release upstream has been made
+
 ## [0.6.0] - 2023-02-08
 
 * Update rtl_433 to the 22.11 release.
