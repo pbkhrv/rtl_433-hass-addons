@@ -42,7 +42,7 @@ else
     OTHER_ARGS="${OTHER_ARGS} --force_update"
   fi
   # This is an optional parameter and we don't want to overwrite the defaults
-  DEVICE_TOPIC_SUFFIX=$(bashio::config "device-topic_suffix")
+  DEVICE_TOPIC_SUFFIX=$(bashio::config "device_topic_suffix")
   if [ ! -z $DEVICE_TOPIC_SUFFIX ]; then
     OTHER_ARGS="${OTHER_ARGS} -T ${DEVICE_TOPIC_SUFFIX}"
   fi
