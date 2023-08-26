@@ -3,11 +3,16 @@ FROM ${BUILD_FROM} as builder
 
 ARG rtl433GitRevision=22.11
 
-RUN wget https://github.com/merbanan/rtl_433/raw/${rtl433GitRevision}/examples/rtl_433_mqtt_hass.py?$RANDOM -O rtl_433_mqtt_hass.py
+RUN apk add --no-cache --virtual .buildDeps \
+    git
+
+RUN git clone https://github.com/merbanan/rtl_433
+WORKDIR rtl_433
+RUN git checkout ${rtl433GitRevision}
 
 FROM ${BUILD_FROM}
 
-COPY --from=builder rtl_433_mqtt_hass.py .
+COPY --from=builder /rtl_433/examples/rtl_433_mqtt_hass.py .
 COPY run.sh .
 
 RUN \
