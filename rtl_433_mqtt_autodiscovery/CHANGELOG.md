@@ -2,6 +2,7 @@
 
 * `device_topic_suffix` support added by @unverbraucht #144
   * When releasing, remember to copy config.json from the next addon if a stable release upstream has been made
+* Fix pointing the next version of the addon to the stable version #164
 
 ## [0.6.0] - 2023-02-08
 
