@@ -1,4 +1,4 @@
-ARG BUILD_FROM=homeassistant/amd64-base-python:3.9-alpine3.16
+ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base-python:3.12-alpine3.16
 FROM ${BUILD_FROM} as builder
 
 ARG rtl433GitRevision=22.11
