@@ -1,3 +1,7 @@
+## [Unreleased] - YYYY-MM-DD
+
+* Fix pointing the next version of the addon to the stable version #164
+
 ## [0.6.0] - 2023-02-08
 
 * Update rtl_433 to the 22.11 release.
