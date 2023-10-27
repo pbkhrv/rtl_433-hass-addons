@@ -8,6 +8,9 @@ if bashio::services.available "mqtt"; then
     port=$(bashio::services "mqtt" "port")
     username=$(bashio::services "mqtt" "username")
     retain=$(bashio::config "retain")
+    if [ "$retain" = "true" ] ; then
+       retain=1
+    fi 
 else
     bashio::log.info "The mqtt addon is not available."
     bashio::log.info "Manually update the output line in the configuration file with mqtt connection settings, and restart the addon."
