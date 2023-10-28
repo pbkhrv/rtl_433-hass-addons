@@ -41,6 +41,11 @@ else
   if bashio::config.true "force_update"; then
     OTHER_ARGS="${OTHER_ARGS} --force_update"
   fi
+  # This is an optional parameter and we don't want to overwrite the defaults
+  DEVICE_TOPIC_SUFFIX=$(bashio::config "device_topic_suffix")
+  if [ ! -z $DEVICE_TOPIC_SUFFIX ]; then
+    OTHER_ARGS="${OTHER_ARGS} -T ${DEVICE_TOPIC_SUFFIX}"
+  fi
 
   LOG_LEVEL=$(bashio::config "log_level")
   if [[ $LOG_LEVEL == "quiet" ]]; then
@@ -49,6 +54,11 @@ else
   if [[ $LOG_LEVEL == "debug" ]]; then
     OTHER_ARGS="${OTHER_ARGS} --debug"
   fi
+fi
+
+# Set a default port for when the container is being run directly.
+if [ ! -z ${MQTT_PORT+x} ]; then
+  MQTT_PORT="1883"
 fi
 
 echo "Starting rtl_433_mqtt_hass.py..."

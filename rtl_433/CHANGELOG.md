@@ -1,3 +1,7 @@
+## [0.4.1] - 2023-10-27
+
+* Fix wrong retain value when setting in mqtt connection string #149 by @cserem
+
 ## [0.4.0] - 2023-02-08
 
 * Update rtl_433 to the 22.11 release.

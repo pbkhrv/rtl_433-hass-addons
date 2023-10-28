@@ -1,3 +1,8 @@
+## [0.7.0] - 2023-10-27
+
+* `device_topic_suffix` support added by @unverbraucht #144
+* Fix pointing the next version of the addon to the stable version #164
+
 ## [0.6.0] - 2023-02-08
 
 * Update rtl_433 to the 22.11 release.
