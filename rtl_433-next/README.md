@@ -12,6 +12,8 @@ When starting, rtl_433 will show the version info such as:
 [rtl_433] rtl_433 version 22.11-89-g416d6c4f branch master at 202302071819 inputs file rtl_tcp RTL-SDR
 ```
 
+To find the upstream git commit rtl_433 was built from, drop the leading `g`. In the above example, rtl_433 was built with 89 commits since the 22.11 release, in git commit `416d6c4f`, which can be found at https://github.com/merbanan/rtl_433/commit/416d6c4f9768f22e7b4cfdd684c58df17c946dbc.
+
 To keep the same topics in MQTT when switching between the normal and next
 versions of the addon, change the `output` lines in each configuration file to:
 
