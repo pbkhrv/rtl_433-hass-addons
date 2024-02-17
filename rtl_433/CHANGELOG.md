@@ -1,3 +1,7 @@
+## [0.5.0] - 2024-02-16
+
+* Update to rtl_433 23.11 for the stable addon
+
 ## [0.4.1] - 2023-10-27
 
 * Fix wrong retain value when setting in mqtt connection string #149 by @cserem

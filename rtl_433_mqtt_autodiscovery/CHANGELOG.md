@@ -1,3 +1,9 @@
+## [0.8.0] - 2024-02-16
+
+* Update to rtl_433 23.11 for the stable addon
+  * The new release will properly support `device_topic_suffix` in the stable branch of this addon #173
+* Default `retain` to true. The recommended approach to running the addon is to only run discovery when actually trying to add a device.
+
 ## [0.7.0] - 2023-10-27
 
 * `device_topic_suffix` support added by @unverbraucht #144
