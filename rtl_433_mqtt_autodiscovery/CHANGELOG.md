@@ -1,3 +1,7 @@
+## [UNRELEASED] - YYYY-MM-DD
+
+* Update to rtl_433 23.11 for the stable addon
+
 ## [0.7.0] - 2023-10-27
 
 * `device_topic_suffix` support added by @unverbraucht #144
