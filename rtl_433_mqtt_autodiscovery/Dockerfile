@@ -14,7 +14,7 @@ RUN \
     pip install \
         --no-cache-dir \
         --prefer-binary \
-        paho-mqtt \
+        paho-mqtt==1.6.1 \
     \
     && chmod a+x /run.sh
 
