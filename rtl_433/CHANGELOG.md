@@ -1,4 +1,4 @@
-## [UNRELEASED] - YYYY-MM-DD
+## [0.5.0] - 2024-02-16
 
 * Update to rtl_433 23.11 for the stable addon
 

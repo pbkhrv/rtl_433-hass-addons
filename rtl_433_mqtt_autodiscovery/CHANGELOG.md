@@ -1,4 +1,4 @@
-## [UNRELEASED] - YYYY-MM-DD
+## [0.8.0] - 2024-02-16
 
 * Update to rtl_433 23.11 for the stable addon
   * The new release will properly support `device_topic_suffix` in the stable branch of this addon #173
