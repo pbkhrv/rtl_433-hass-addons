@@ -1,3 +1,7 @@
+## [0.8.1] - 2024-02-17
+
+* Downgrade paho-mqtt to 1.6.3 as 2.x has compatibility breaks. #178 #179
+
 ## [0.8.0] - 2024-02-16
 
 * Update to rtl_433 23.11 for the stable addon
