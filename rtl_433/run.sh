@@ -10,10 +10,12 @@ if bashio::services.available "mqtt"; then
     retain=$(bashio::config "retain")
     if [ "$retain" = "true" ] ; then
        retain=1
-    fi 
+    fi
 else
     bashio::log.info "The mqtt addon is not available."
-    bashio::log.info "Manually update the output line in the configuration file with mqtt connection settings, and restart the addon."
+    bashio::log.info "This is not a problem if you are using an external MQTT broker."
+    bashio::log.info "If you are using the Home Assistant Mosquitto Broker addon, try restarting it, and then restart the rtl_433 addon."
+    bashio::log.info "For an external broker, manually update the output line in the configuration file with mqtt connection settings, and restart the addon."
 fi
 
 if [ ! -d $conf_directory ]
