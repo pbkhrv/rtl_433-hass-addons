@@ -14,7 +14,7 @@
     "mqtt_port": 1883,
     "mqtt_user": "",
     "mqtt_password": "",
-    "mqtt_retain": false,
+    "mqtt_retain": true,
     "rtl_topic": "rtl_433/+/events",
     "device_topic_suffix": "",
     "discovery_prefix": "homeassistant",
