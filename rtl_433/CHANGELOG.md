@@ -1,3 +1,7 @@
+## [0.5.1] - 2024-02-17
+
+* Add better help text when the mqtt addon isn't in use or available
+
 ## [0.5.0] - 2024-02-16
 
 * Update to rtl_433 23.11 for the stable addon
