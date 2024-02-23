@@ -1,6 +1,5 @@
 ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:3.18
 FROM $BUILD_FROM as builder
-MAINTAINER pbkhrv@pm.me
 
 ENV LANG C.UTF-8
 
@@ -18,7 +17,7 @@ RUN git clone https://github.com/merbanan/rtl_433
 WORKDIR ./rtl_433
 
 # Build a specific commit or tag.
-ARG rtl433GitRevision=23.11
+ARG rtl433GitRevision=nightly
 RUN git checkout ${rtl433GitRevision}
 WORKDIR ./build
 RUN cmake ..
