@@ -1,3 +1,7 @@
+## [0.8.2] - 2024-06-23
+
+* Upgrade base images to support RTL-SDR V4 #181
+
 ## [0.8.1] - 2024-02-17
 
 * Downgrade paho-mqtt to 1.6.3 as 2.x has compatibility breaks. #178 #179
