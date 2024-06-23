@@ -1,3 +1,7 @@
+## [0.5.2] - 2024-06-23
+
+* Upgrade base images to support RTL-SDR V4 #181
+
 ## [0.5.1] - 2024-02-17
 
 * Add better help text when the mqtt addon isn't in use or available
