@@ -16,7 +16,7 @@ concurrency:
 jobs:
   build_rtl_433:
     name: Build rtl_433 addon
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
         arch: [armhf, armv7, aarch64, amd64, i386]
