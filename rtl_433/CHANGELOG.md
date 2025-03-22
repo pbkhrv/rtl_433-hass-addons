@@ -1,3 +1,7 @@
+## [UNRELEASED] - YYYY-MM-DD
+
+* Update Alpine base to 3.21
+
 ## [0.5.3] - 2024-10-20
 
 * Support SoapySDR devices #198 #199
