@@ -1,3 +1,7 @@
+## [UNRELEASED] - YYYY-MM-DD
+
+* Update Alpine base to 3.21
+
 ## [0.8.2] - 2024-06-23
 
 * Upgrade base images to support RTL-SDR V4 #181
