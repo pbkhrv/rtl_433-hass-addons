@@ -1,4 +1,4 @@
-## [UNRELEASED] - YYYY-MM-DD
+## [0.6.0] - 2025-03-22
 
 * Update Alpine base to 3.21
 * Update the stable addon to rtl_433 25.02
