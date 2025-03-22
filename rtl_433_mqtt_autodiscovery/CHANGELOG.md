@@ -1,3 +1,8 @@
+## [0.9.0] - 2025-03-22
+
+* Update Alpine base to 3.21
+* Update the stable addon to rtl_433 25.02
+
 ## [0.8.2] - 2024-06-23
 
 * Upgrade base images to support RTL-SDR V4 #181

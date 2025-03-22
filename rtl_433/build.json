@@ -5,8 +5,5 @@
     "armhf": "ghcr.io/home-assistant/armhf-base:3.21",
     "armv7": "ghcr.io/home-assistant/armv7-base:3.21",
     "i386": "ghcr.io/home-assistant/i386-base:3.21"
-  },
-  "args": {
-    "rtl433GitRevision": "master"
   }
 }
