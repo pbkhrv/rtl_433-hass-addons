@@ -61,7 +61,7 @@ RUN mkdir -p /usr/local/lib/SoapySDR/modules0.8/
 COPY --from=soapy_hackrf_builder /usr/local/lib/SoapySDR/modules0.8/libHackRFSupport.so /usr/local/lib/SoapySDR/modules0.8/
 
 # Run script
-COPY run.sh /
+COPY run.sh rtl_433.conf.template /
 RUN chmod a+x /run.sh
 
 CMD [ "/run.sh" ]
