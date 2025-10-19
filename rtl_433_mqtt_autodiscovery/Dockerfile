@@ -1,9 +1,9 @@
 ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base-python:3.12-alpine3.21
 FROM ${BUILD_FROM} as builder
 
-ARG rtl433GitRevision=25.02
+ARG rtl433GitRevision=add_dsc_full
 
-RUN wget https://raw.githubusercontent.com/merbanan/rtl_433/${rtl433GitRevision}/examples/rtl_433_mqtt_hass.py -O rtl_433_mqtt_hass.py
+RUN wget https://raw.githubusercontent.com/biney59/rtl_433/${rtl433GitRevision}/examples/rtl_433_mqtt_hass.py -O rtl_433_mqtt_hass.py
 
 FROM ${BUILD_FROM}
 
