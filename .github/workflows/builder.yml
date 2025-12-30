@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        arch: [armhf, armv7, aarch64, amd64, i386]
+        arch: [armhf, armv7, aarch64, amd64]
         addon: [rtl_433, rtl_433-next, rtl_433_mqtt_autodiscovery, rtl_433_mqtt_autodiscovery-next]
 
     steps:
