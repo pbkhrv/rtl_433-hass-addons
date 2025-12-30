@@ -5,7 +5,7 @@
   "slug": "rtl433",
   "description": "Receive wireless sensor data via an SDR dongle and rtl_433",
   "url": "https://github.com/pbkhrv/rtl_433-hass-addons/tree/main/rtl_433",
-  "arch": ["armhf", "armv7", "aarch64", "amd64"],
+  "arch": ["armv7", "aarch64", "amd64"],
   "startup": "application",
   "boot": "auto",
   "init": false,
