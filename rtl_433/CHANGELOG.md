@@ -2,7 +2,7 @@
 
 * Fix unbounded $1 in HEREDOC #230
 * Drop support for architectures Home Assistant has dropped
-* * Update the stable addon to rtl_433 25.12
+* Update the stable addon to rtl_433 25.12
 
 ## [0.6.0] - 2025-03-22
 
