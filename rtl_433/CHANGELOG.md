@@ -1,3 +1,7 @@
+## [UNRELEASED] - YYYY-MM-DD
+
+* Drop support for architectures Home Assistant has dropped
+
 ## [0.6.0] - 2025-03-22
 
 * Update Alpine base to 3.21
